@@ -9,6 +9,7 @@ AllCops:
   - '*.gemspec'
   - 'Gemfile'
   - 'Rakefile'
+  - 'spec/spec_helper.rb'
 
 # Accept both [:a, :b, :c] and %i[a b c]
 Style/SymbolArray:

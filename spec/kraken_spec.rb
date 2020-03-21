@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Kraken::CLI do
-
   it 'has a version number' do
     expect(Kraken::VERSION).not_to be nil
   end
