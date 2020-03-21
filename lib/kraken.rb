@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
-require 'kraken/version'
+require 'kraken'
+require 'thor'
 
 module Kraken
   class Error < StandardError; end
-  # Your code goes here...
+
+  class CLI < Thor
+    desc 'hello', 'sup?'
+    def hello
+      puts 'yes? can I help you?'
+    end
+  end
 end
