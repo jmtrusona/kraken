@@ -4,7 +4,6 @@ require 'k8s-client'
 
 module Kubernetes
   class Client
-
     def self.create
       K8s::Client.config(
         K8s::Config.load_file(
@@ -12,6 +11,5 @@ module Kubernetes
         )
       )
     end
-
   end
 end

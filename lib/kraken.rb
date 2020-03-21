@@ -8,7 +8,6 @@ module Kraken
   class Error < StandardError; end
 
   class CLI < Thor
-
     desc 'hello', 'sup?'
     def hello
       puts 'yes? can I help you?'
@@ -24,5 +23,4 @@ module Kraken
       end
     end
   end
-
 end
