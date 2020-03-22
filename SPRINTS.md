@@ -131,3 +131,39 @@ Github Tags
 - `+` got the client wrapper working with tests
 - `-` issues with pagination when pulling the tags, unable to run against skylab
 - `-` did not have time to use current directory as the basis for tags, hard coded to this repo
+
+# Sprint 5
+
+March 22, 2020 from 2:00pm to 3:00pm
+
+### List github tags
+
+- add tacokit gem
+- add TrelloWrapper to project
+- add `kraken cards` command to list the Build board cards
+- output:
+
+```
+Build
+Backlog
+- 2500 : Build a new thing
+Sprint Backlog
+- 2560 : Build this other thing
+...
+```
+
+- Tests use mock
+- `v0.5.0` tagged
+
+## Review
+
+- run `bundle exec exe/kraken cards` to display all card titles for the Build board
+
+## Retro
+
+- `-` feature did not turn out as planned
+- `-` took extra 8 minutes to finish the sprint work
+- `-` tried to use tacokit gem again which is old, waste of time
+- `-` the Trello module is a bad name as it was clashing with the trello-ruby gem
+- `+` got it sort of working
+- `-` been forgetting to update the `version.rb` file with releases

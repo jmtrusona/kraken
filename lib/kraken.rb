@@ -4,6 +4,7 @@ require 'kraken'
 require 'thor'
 require 'kubernetes/client_wrapper'
 require 'github/client_wrapper'
+require 'trello/client_wrapper'
 
 module Kraken
   class Error < StandardError; end
@@ -31,6 +32,16 @@ module Kraken
       git_tags = client.list_tags(options[:organization], options[:repository])
       git_tags.each do |git_tag|
         puts "- #{git_tag}"
+      end
+    end
+
+    desc 'cards', 'List the Trello cards for a board'
+    option :board, default: 'Build'
+    def cards(client = Trello::ClientWrapper.new)
+      puts 'Cards'
+      cards = client.list_cards(options[:board])
+      cards.each do |card|
+        puts "- #{card}"
       end
     end
   end

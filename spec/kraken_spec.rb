@@ -43,7 +43,7 @@ RSpec.describe Kraken::CLI do
 
     let(:output) { capture(:stdout) { subject.tags(client) } }
 
-    it 'lists the tags for the current directory github project' do
+    it 'lists the tags for the github project' do
       # TODO: fix to work with options
       # expect(client).to receive(:list_tags).with('jmtrusona', 'kraken')
       #                                      .and_return(%w[v0.1.0 v0.2.0])
@@ -52,6 +52,21 @@ RSpec.describe Kraken::CLI do
       expected =  "Tags\n"
       expected += "- v0.1.0\n"
       expected += "- v0.2.0\n"
+
+      expect(output).to eq(expected)
+    end
+  end
+
+  context '#cards' do
+    let(:client) { double }
+
+    let(:output) { capture(:stdout) { subject.cards(client) } }
+
+    it 'lists the cards for the trello board' do
+      expect(client).to receive(:list_cards).and_return(['Build something new'])
+
+      expected =  "Cards\n"
+      expected += "- Build something new\n"
 
       expect(output).to eq(expected)
     end

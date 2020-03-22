@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nothing
 
+## [0.5.0] - March 22, 2020
+
+### Added
+- Trello client for looking up Trello cards
+- `kraken cards` command
+
 ## [0.4.0] - March 22, 2020
 
 ### Added
