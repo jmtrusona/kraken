@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nothing
 
+## [0.3.0] - March 22, 2020
+
+### Updated
+- Kubernetes client to take a ClientWrapper approach
+- kraken_spec.rb tests mock out kubernetes calls
+
 ## [0.2.0] - March 21, 2020
 
 ### Added

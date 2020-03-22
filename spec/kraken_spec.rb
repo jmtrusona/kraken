@@ -14,12 +14,25 @@ RSpec.describe Kraken::CLI do
   end
 
   context '#pods' do
-    let(:output) { capture(:stdout) { subject.pods('trusona') } }
+    let(:client) { double }
+    let(:pod) { double }
+    let(:metadata) { double }
+    let(:status) { double }
+
+    let(:output) { capture(:stdout) { subject.pods('taco', client) } }
 
     it 'lists the active deployments for given name' do
-      expected =  "Pods app=trusona\n"
-      expected += "- trusona-deployment-577cfb56c9-q5mzf : Running\n"
-      expected += "- trusona-deployment-577cfb56c9-rzlgc : Running\n"
+      expect(client).to receive(:find_pods_by_label).with('taco')
+                                                    .and_return([pod])
+
+      expect(pod).to receive(:metadata).and_return(metadata)
+      expect(metadata).to receive(:name).and_return('bell-abc-123')
+
+      expect(pod).to receive(:status).and_return(status)
+      expect(status).to receive(:phase).and_return('Running')
+
+      expected =  "Pods app=taco\n"
+      expected += "- bell-abc-123 : Running\n"
 
       expect(output).to eq(expected)
     end

@@ -2,7 +2,7 @@
 
 require 'kraken'
 require 'thor'
-require 'kubernetes'
+require 'kubernetes/client_wrapper'
 
 module Kraken
   class Error < StandardError; end
@@ -14,11 +14,10 @@ module Kraken
     end
 
     desc 'pods LABEL', 'List the current status of the pods'
-    def pods(label)
+    def pods(label, client = Kubernetes::ClientWrapper.new)
       puts "Pods app=#{label}"
-      @kubernetes = Kubernetes::Client.create
-      uat_pods = @kubernetes.api('v1').resource('pods', namespace: 'uat')
-      uat_pods.list(labelSelector: { app: label }).each do |pod|
+      uat_pods = client.find_pods_by_label(label)
+      uat_pods.each do |pod|
         puts "- #{pod.metadata.name} : #{pod.status.phase}"
       end
     end

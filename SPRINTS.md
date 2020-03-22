@@ -4,7 +4,7 @@ March 21, 2020 from 11:00am to 12:00pm
 
 ## Stories
 
-### List kubernetes deployment - 5
+### List kubernetes deployment
 
 - add kubernetes client gem
 - add `kraken list deployments [name]`
@@ -39,7 +39,7 @@ March 21, 2020 from 11:00am to 12:00pm
 
 March 21, 2020 from 2:00pm to 3:00pm
 
-### List Trello cards - 5
+### List Trello cards
 
 - add tacokit gem
 - add `kraken cards` command
@@ -68,3 +68,34 @@ Sprint Backlog
 - `-` got lost in writing the spec code, wasted too much time
 - `+` was able to list the cards by lists
 - `+/-` try again from scratch in next sprint, no release, no `v0.3.0`
+
+# Sprint 3
+
+March 22, 2020 from 10:00am to 11:00am
+
+### List Trello cards
+
+- add `--watch` flag to `kraken pods` 
+- output:
+
+```
+Pod [app label]
+- [pod] : [status] -> 5min 
+- [pod] : [status] -> 1m32s
+```
+
+- update tests to use mock
+- `v0.4.0` tagged
+
+## Review
+
+- run `bundle exec exe/kraken pods trusona`
+- run `bundle exec exe/kraken pods td-authentication`
+- tests no longer rely on real kubernetes cluster
+- released as `v0.3.0`
+
+## Retro
+
+- `-/+` scrapped the watch command idea to focus on tests
+- `+` no longer need real cluster to run tests
+- `-` watch command provides little value as you can just use the `watch kraken pods trusona` for the same effect
