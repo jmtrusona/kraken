@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   # Runtime Dependencies
   spec.add_dependency 'thor', '~> 1.0'
   spec.add_dependency 'k8s-client'
+  spec.add_dependency 'octokit', '~> 4.0'
 
   # Task and testing tools
   spec.add_development_dependency 'rake', '~> 12.0'

@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nothing
 
+## [0.4.0] - March 22, 2020
+
+### Added
+- GitHub client for looking up git tags
+- `kraken tags` command
+
 ## [0.3.0] - March 22, 2020
 
 ### Updated
@@ -17,10 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0] - March 21, 2020
 
 ### Added
-- `hello` command
+- `kraken hello` command
 - Setup rspec test suite
 - Added rubocop to default rake task
-- `pod` command for listing pods by the `app` label in kubernetes
+- `kraken pods` command for listing pods by the `app` label in kubernetes
 
 ## [0.1.0] - March 21, 2020
 
@@ -28,7 +34,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial project creation
 - Added rubocop
 
-[Unreleased]: https://github.com/jmtrusona/kraken/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/jmtrusona/kraken/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/jmtrusona/kraken/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/jmtrusona/kraken/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/jmtrusona/kraken/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/jmtrusona/kraken/releases/tag/v0.1.0

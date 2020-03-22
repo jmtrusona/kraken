@@ -37,4 +37,23 @@ RSpec.describe Kraken::CLI do
       expect(output).to eq(expected)
     end
   end
+
+  context '#tags' do
+    let(:client) { double }
+
+    let(:output) { capture(:stdout) { subject.tags(client) } }
+
+    it 'lists the tags for the current directory github project' do
+      # TODO: fix to work with options
+      # expect(client).to receive(:list_tags).with('jmtrusona', 'kraken')
+      #                                      .and_return(%w[v0.1.0 v0.2.0])
+
+      expect(client).to receive(:list_tags).and_return(%w[v0.1.0 v0.2.0])
+      expected =  "Tags\n"
+      expected += "- v0.1.0\n"
+      expected += "- v0.2.0\n"
+
+      expect(output).to eq(expected)
+    end
+  end
 end

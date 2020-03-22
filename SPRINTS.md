@@ -73,7 +73,7 @@ Sprint Backlog
 
 March 22, 2020 from 10:00am to 11:00am
 
-### List Trello cards
+### Add watch to pods command
 
 - add `--watch` flag to `kraken pods` 
 - output:
@@ -99,3 +99,35 @@ Pod [app label]
 - `-/+` scrapped the watch command idea to focus on tests
 - `+` no longer need real cluster to run tests
 - `-` watch command provides little value as you can just use the `watch kraken pods trusona` for the same effect
+
+# Sprint 4
+
+March 22, 2020 from 12:00pm to 1:00pm
+
+### List github tags
+
+- add octokit gem
+- add GithubWrapper to project
+- add `kraken tags` command, looks up tags for current directory project (must run from with project)
+- output:
+
+```
+Github Tags
+- v0.1.0
+- v0.2.0
+```
+
+- Tests use mock
+- `v0.4.0` tagged
+
+## Review
+
+- run `bundle exec exe/kraken tags` which lists the jmtrusona/kraken tags
+- run `bundle exec exe/kraken tags --repository stubby-rails` which lists the jmtrusona/stubby-rails tags
+
+## Retro
+
+- `-` broke the spec right at the end of the sprint trying to add the repo and org flags
+- `+` got the client wrapper working with tests
+- `-` issues with pagination when pulling the tags, unable to run against skylab
+- `-` did not have time to use current directory as the basis for tags, hard coded to this repo
