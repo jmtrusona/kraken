@@ -5,11 +5,11 @@ RSpec.describe Kraken::CLI do
     expect(Kraken::VERSION).not_to be nil
   end
 
-  context '#hello' do
-    let(:output) { capture(:stdout) { subject.hello } }
+  context '#version' do
+    let(:output) { capture(:stdout) { subject.version } }
 
-    it 'says hello' do
-      expect(output).to eq("yes? can I help you?\n")
+    it 'displays the current version' do
+      expect(output).to eq("#{Kraken::VERSION}\n")
     end
   end
 

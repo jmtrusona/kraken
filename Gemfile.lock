@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kraken (0.5.0)
+    kraken (0.6.0)
       k8s-client
       octokit (~> 4.0)
       ruby-trello

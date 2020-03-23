@@ -167,3 +167,26 @@ Sprint Backlog
 - `-` the Trello module is a bad name as it was clashing with the trello-ruby gem
 - `+` got it sort of working
 - `-` been forgetting to update the `version.rb` file with releases
+
+# Sprint 6
+
+March 22, 2020 from 4:30pm to 5:30pm
+
+### Aloha
+
+- fix module name
+- remove `kraken hello` command
+- add `kraken version` command
+- refactor for outputs
+- `v0.6.0` tagged
+
+## Review
+
+- run `bundle exec exe/kraken tags`
+- run `bundle exec exe/kraken cards`
+- run `bundle exec exe/kraken pods trusona`
+
+## Retro
+
+- `+` nice to clean up code
+- `-` no new features

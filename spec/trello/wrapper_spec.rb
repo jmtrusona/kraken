@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'trello/client_wrapper'
+require 'trello/wrapper'
 
-RSpec.describe Trello::ClientWrapper do
+RSpec.describe Kraken::Trello::Wrapper do
   let(:client) { double }
   let(:board) { double }
   let(:list) { double }
   let(:card) { double }
 
-  subject { Trello::ClientWrapper.new(client) }
+  subject { Kraken::Trello::Wrapper.new(client) }
 
   it 'delegates list_cards to the initialized client' do
     expect(client).to receive(:boards)
@@ -28,6 +28,6 @@ RSpec.describe Trello::ClientWrapper do
 
     cards = subject.list_cards('quesadilla')
 
-    expect(cards).to eq(['Build a new thing'])
+    expect(cards.map(&:name)).to eq(['Build a new thing'])
   end
 end
