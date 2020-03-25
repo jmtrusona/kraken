@@ -190,3 +190,24 @@ March 22, 2020 from 4:30pm to 5:30pm
 
 - `+` nice to clean up code
 - `-` no new features
+
+
+# Sprint 7
+
+March 25, 2020 from 7:00am to 8:00am
+
+### Figure out git repo based off current directory
+
+- add a git gem to project
+- add `kraken whoami` command
+
+## Review
+
+- run `bundle exec exe/kraken whoami`
+
+## Retro
+
+- `-` had to fix tests that were left broken in Sprint 6
+- `-/+` removed the faker classes which were not being used
+- `+` git service was easy to implement
+- `+` finished the sprint early (only took 40 minutes)

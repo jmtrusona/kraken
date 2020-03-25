@@ -7,6 +7,7 @@ require 'thor'
 require 'kubernetes/wrapper'
 require 'github/wrapper'
 require 'trello/wrapper'
+require 'git/service'
 
 module Kraken
   class Error < StandardError; end
@@ -45,6 +46,11 @@ module Kraken
       cards.each do |card|
         puts "- #{card.name}"
       end
+    end
+
+    desc 'whoami', 'Displays the git repo for current directory'
+    def whoami(service = Kraken::Git::Service.new)
+      puts "I am #{service.remote_url}"
     end
   end
 end

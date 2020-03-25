@@ -23,13 +23,9 @@ RSpec.describe Kraken::CLI do
 
     it 'lists the active deployments for given name' do
       expect(client).to receive(:find_pods_by_label).with('taco')
-                                                    .and_return([pod])
-
-      expect(pod).to receive(:metadata).and_return(metadata)
-      expect(metadata).to receive(:name).and_return('bell-abc-123')
-
-      expect(pod).to receive(:status).and_return(status)
-      expect(status).to receive(:phase).and_return('Running')
+                                                    .and_return([
+                                                                  Kraken::Kubernetes::Pod.new('bell-abc-123', 'Running')
+                                                                ])
 
       expected =  "Pods app=taco\n"
       expected += "- bell-abc-123 : Running\n"
@@ -48,7 +44,10 @@ RSpec.describe Kraken::CLI do
       # expect(client).to receive(:list_tags).with('jmtrusona', 'kraken')
       #                                      .and_return(%w[v0.1.0 v0.2.0])
 
-      expect(client).to receive(:list_tags).and_return(%w[v0.1.0 v0.2.0])
+      expect(client).to receive(:list_tags).and_return([
+                                                         Kraken::GitHub::Tag.new('v0.1.0'),
+                                                         Kraken::GitHub::Tag.new('v0.2.0')
+                                                       ])
       expected =  "Tags\n"
       expected += "- v0.1.0\n"
       expected += "- v0.2.0\n"
@@ -63,10 +62,26 @@ RSpec.describe Kraken::CLI do
     let(:output) { capture(:stdout) { subject.cards(client) } }
 
     it 'lists the cards for the trello board' do
-      expect(client).to receive(:list_cards).and_return(['Build something new'])
+      expect(client).to receive(:list_cards).and_return([
+                                                          Kraken::Trello::Card.new('Build something new')
+                                                        ])
 
       expected =  "Cards\n"
       expected += "- Build something new\n"
+
+      expect(output).to eq(expected)
+    end
+  end
+
+  context '#whoami' do
+    let(:service) { double }
+
+    let(:output) { capture(:stdout) { subject.whoami(service) } }
+
+    it 'displays the repo for the current directory' do
+      expect(service).to receive(:remote_url).and_return('git@github.com:blah/blah.git')
+
+      expected = "I am git@github.com:blah/blah.git\n"
 
       expect(output).to eq(expected)
     end

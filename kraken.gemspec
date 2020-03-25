@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'k8s-client'
   spec.add_dependency 'octokit', '~> 4.0'
   spec.add_dependency 'ruby-trello'
+  spec.add_dependency 'git', '~> 1.6'
 
   # Task and testing tools
   spec.add_development_dependency 'rake', '~> 12.0'
