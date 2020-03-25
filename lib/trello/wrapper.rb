@@ -9,7 +9,7 @@ module Kraken
 
     class Wrapper
       def initialize(client = nil)
-        @client = client || new_client
+        @client = client || real_client
       end
 
       def list_cards(board_name)
@@ -18,7 +18,7 @@ module Kraken
 
         board.lists.each do |list|
           cards += list.cards.map do |card|
-            Kraken::Trello::Card.new(card.name)
+            Kraken::Trello::Card.new(name: card.name)
           end
         end
         cards
@@ -26,7 +26,7 @@ module Kraken
 
       private
 
-      def new_client
+      def real_client
         ::Trello.configure do |config|
           config.developer_public_key = ENV['TRELLO_APP_KEY']
           config.member_token = ENV['TRELLO_MEMBER_TOKEN']

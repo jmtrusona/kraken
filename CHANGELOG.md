@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing
+### Updated
+- Switch to use named parameters on model
+- Refactored the git service
 
 ## [0.7.0] - March 25, 2020
 

@@ -5,7 +5,7 @@ module Kraken
     class Card
       attr_accessor :name
 
-      def initialize(name = nil)
+      def initialize(name: nil)
         @name = name
       end
     end

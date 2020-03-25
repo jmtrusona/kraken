@@ -8,7 +8,7 @@ module Kraken
     class Error < StandardError; end
     class Wrapper
       def initialize(client = nil)
-        @client = client || new_client
+        @client = client || real_client
       end
 
       def find_pods_by_label(label)
@@ -19,13 +19,14 @@ module Kraken
         pods_raw.map do |pod_raw|
           name = pod_raw.metadata.name
           status = pod_raw.status.phase
-          Kraken::Kubernetes::Pod.new(name, status)
+          Kraken::Kubernetes::Pod.new(name: name,
+                                      status: status)
         end
       end
 
       private
 
-      def new_client
+      def real_client
         K8s::Client.config(
           K8s::Config.load_file(
             File.expand_path('~/.kube/config')

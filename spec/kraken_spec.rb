@@ -24,7 +24,8 @@ RSpec.describe Kraken::CLI do
     it 'lists the active deployments for given name' do
       expect(client).to receive(:find_pods_by_label).with('taco')
                                                     .and_return([
-                                                                  Kraken::Kubernetes::Pod.new('bell-abc-123', 'Running')
+                                                                  Kraken::Kubernetes::Pod.new(name: 'bell-abc-123',
+                                                                                              status: 'Running')
                                                                 ])
 
       expected =  "Pods app=taco\n"
@@ -45,8 +46,8 @@ RSpec.describe Kraken::CLI do
       #                                      .and_return(%w[v0.1.0 v0.2.0])
 
       expect(client).to receive(:list_tags).and_return([
-                                                         Kraken::GitHub::Tag.new('v0.1.0'),
-                                                         Kraken::GitHub::Tag.new('v0.2.0')
+                                                         Kraken::GitHub::Tag.new(name: 'v0.1.0'),
+                                                         Kraken::GitHub::Tag.new(name: 'v0.2.0')
                                                        ])
       expected =  "Tags\n"
       expected += "- v0.1.0\n"
@@ -63,7 +64,7 @@ RSpec.describe Kraken::CLI do
 
     it 'lists the cards for the trello board' do
       expect(client).to receive(:list_cards).and_return([
-                                                          Kraken::Trello::Card.new('Build something new')
+                                                          Kraken::Trello::Card.new(name: 'Build something new')
                                                         ])
 
       expected =  "Cards\n"

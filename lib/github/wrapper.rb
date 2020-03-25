@@ -9,7 +9,7 @@ module Kraken
 
     class Wrapper
       def initialize(client = nil)
-        @client = client || new_client
+        @client = client || real_client
       end
 
       def list_tags(organization, repository)
@@ -19,13 +19,13 @@ module Kraken
 
         tags.map do |tag|
           name = tag.ref.delete_prefix('refs/tags/')
-          Kraken::GitHub::Tag.new(name)
+          Kraken::GitHub::Tag.new(name: name)
         end
       end
 
       private
 
-      def new_client
+      def real_client
         Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
       end
     end

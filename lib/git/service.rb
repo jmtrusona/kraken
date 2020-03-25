@@ -7,12 +7,18 @@ module Kraken
     class Error < StandardError; end
 
     class Service
-      def initialize(git = ::Git.open('.'))
-        @git = git
+      def initialize(service = nil)
+        @git = service || real_service
       end
 
       def remote_url
         @git.remote.url
+      end
+
+      private
+
+      def real_service
+        ::Git.open('.')
       end
     end
   end
