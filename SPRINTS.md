@@ -211,3 +211,25 @@ March 25, 2020 from 7:00am to 8:00am
 - `-/+` removed the faker classes which were not being used
 - `+` git service was easy to implement
 - `+` finished the sprint early (only took 40 minutes)
+
+# Sprint 8
+
+March 25, 2020 from 3:45pm to 4:45pm
+
+### Aloha
+
+- move to [subcommands](https://github.com/erikhuda/thor/wiki/Subcommands) 
+
+## Review
+
+- run `bundle exec exe/kraken git whoami`
+- run `bundle exec exe/kraken github tags`
+- run `bundle exec exe/kraken kubernetes pods trusona` (connect to us-oahu cluster)
+- run `bundle exec exe/kraken trello cards`
+
+## Retro
+
+- `+` refactor to subcommands went smoothly
+- `+` less mess in the **kraken_spec.rb** file
+- `-` the help on subcommands is a little weird
+- `+` finished sprint early (only took 45 minutes)

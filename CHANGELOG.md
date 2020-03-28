@@ -6,9 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - March 28, 2020
+
 ### Updated
 - Switch to use named parameters on model
 - Refactored the git service
+- Moved commands down to subcommands based off type:
+  - `kraken git whoami`
+  - `kraken github tags`
+  - `kraken kubernetes pods [LABEL]`
+  - `kraken trello cards`
 
 ## [0.7.0] - March 25, 2020
 
