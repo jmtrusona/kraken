@@ -8,7 +8,7 @@ RSpec.describe Kraken::Trello::Wrapper do
   let(:list) { double }
   let(:card) { double }
 
-  subject { Kraken::Trello::Wrapper.new(client) }
+  subject { Kraken::Trello::Wrapper.new(client: client) }
 
   it 'delegates list_cards to the initialized client' do
     expect(client).to receive(:boards)

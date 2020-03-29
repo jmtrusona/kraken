@@ -5,7 +5,7 @@ require 'github/wrapper'
 RSpec.describe Kraken::GitHub::Wrapper do
   let(:client) { double }
 
-  subject { Kraken::GitHub::Wrapper.new(client) }
+  subject { Kraken::GitHub::Wrapper.new(client: client) }
 
   it 'delegates list_tags to the initialized client' do
     expect(client).to receive(:refs).with('burrito/taco-server')

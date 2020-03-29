@@ -4,11 +4,9 @@ require 'git'
 
 module Kraken
   module Git
-    class Error < StandardError; end
-
-    class Service
-      def initialize(service = nil)
-        @git = service || real_service
+    class Wrapper
+      def initialize(client: real_client)
+        @git = client
       end
 
       def remote_url
@@ -17,7 +15,7 @@ module Kraken
 
       private
 
-      def real_service
+      def real_client
         ::Git.open('.')
       end
     end

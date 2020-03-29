@@ -233,3 +233,34 @@ March 25, 2020 from 3:45pm to 4:45pm
 - `+` less mess in the **kraken_spec.rb** file
 - `-` the help on subcommands is a little weird
 - `+` finished sprint early (only took 45 minutes)
+
+# Sprint 9
+
+March 26, 2020 from 7:00am to 8:00am
+
+### List the releases in CHANGELOG.md
+
+- parse the CHANGELOG.md file
+- add `kraken changelog view` command
+- output:
+```
+Version: 0.0.1
+Added:
+- New feature to thing
+Updated:
+- Refactored old thing to be better
+...
+```
+
+## Review
+
+- nothing, failed the sprint
+
+## Retro
+
+- `-` only got the parse logic for the CHANGELOG.md half done
+- `+` got all the test logic set up for changelog
+- `-` had to skip the broken tests to be able to merge to master
+- `-` time spent on refactoring may have been reason for failure
+- `+/-` output of the `kraken changelog view` command is "under construction" to keep it releasable
+- `-` sprint ran over time (extra 15 minutes to get in releasable state)

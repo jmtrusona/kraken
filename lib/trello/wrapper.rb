@@ -5,11 +5,9 @@ require 'trello/model/card'
 
 module Kraken
   module Trello
-    class Error < StandardError; end
-
     class Wrapper
-      def initialize(client = nil)
-        @client = client || real_client
+      def initialize(client: real_client)
+        @trello = client
       end
 
       def list_cards(board_name)
@@ -35,7 +33,7 @@ module Kraken
       end
 
       def find_board(board_name)
-        @client.boards.find { |board| board.name == board_name }
+        @trello.boards.find { |board| board.name == board_name }
       end
     end
   end

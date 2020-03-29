@@ -5,16 +5,15 @@ require 'kubernetes/model/pod'
 
 module Kraken
   module Kubernetes
-    class Error < StandardError; end
     class Wrapper
-      def initialize(client = nil)
-        @client = client || real_client
+      def initialize(client: real_client)
+        @kubernetes = client
       end
 
       def find_pods_by_label(label)
-        pods_raw = @client.api('v1')
-                          .resource('pods', namespace: 'uat')
-                          .list(labelSelector: { app: label })
+        pods_raw = @kubernetes.api('v1')
+                              .resource('pods', namespace: 'uat')
+                              .list(labelSelector: { app: label })
 
         pods_raw.map do |pod_raw|
           name = pod_raw.metadata.name

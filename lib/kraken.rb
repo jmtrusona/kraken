@@ -1,22 +1,25 @@
 # frozen_string_literal: true
 
+require 'thor'
+
 require 'kraken'
 require 'kraken/version'
 
-require 'thor'
+require 'changelog/commands'
 require 'git/commands'
 require 'github/commands'
 require 'kubernetes/commands'
 require 'trello/commands'
 
 module Kraken
-  class Error < StandardError; end
-
   class CLI < Thor
     desc 'version', 'Display the version'
     def version
       puts Kraken::VERSION
     end
+
+    desc 'changelog', 'Run commands related to CHANGELOG.md'
+    subcommand 'changelog', Kraken::Changelog::Commands
 
     desc 'github', 'Run commands related to GitHub'
     subcommand 'github', Kraken::GitHub::Commands

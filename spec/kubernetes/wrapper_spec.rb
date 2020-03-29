@@ -7,7 +7,7 @@ RSpec.describe Kraken::Kubernetes::Wrapper do
   let(:api) { double }
   let(:resource) { double }
 
-  subject { Kraken::Kubernetes::Wrapper.new(client) }
+  subject { Kraken::Kubernetes::Wrapper.new(client: client) }
 
   it 'delegates find_pods_by_label to the initialized client' do
     expect(client).to receive(:api).with('v1')
