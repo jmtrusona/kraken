@@ -8,8 +8,10 @@ RSpec.describe Kraken::Changelog::Commands do
 
     let(:output) { capture(:stdout) { subject.view(service) } }
 
-    xit 'parses the CHANGELOG.md and displays the releases and changesets' do
-      expect(service).to receive(:parse).and_return(Kraken::Changelog::Release.new(version: '1.2.3'))
+    it 'parses the CHANGELOG.md and displays the releases and changesets' do
+      expect(service).to receive(:parse).and_return([
+                                                      Kraken::Changelog::Release.new(version: '1.2.3')
+                                                    ])
 
       expected = "Version: 1.2.3\n"
 

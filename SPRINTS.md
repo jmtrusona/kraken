@@ -214,7 +214,7 @@ March 25, 2020 from 7:00am to 8:00am
 
 # Sprint 8
 
-March 25, 2020 from 3:45pm to 4:45pm
+March 28, 2020 from 3:45pm to 4:45pm
 
 ### Aloha
 
@@ -236,7 +236,7 @@ March 25, 2020 from 3:45pm to 4:45pm
 
 # Sprint 9
 
-March 26, 2020 from 7:00am to 8:00am
+March 29, 2020 from 7:00am to 8:00am
 
 ### List the releases in CHANGELOG.md
 
@@ -264,3 +264,33 @@ Updated:
 - `-` time spent on refactoring may have been reason for failure
 - `+/-` output of the `kraken changelog view` command is "under construction" to keep it releasable
 - `-` sprint ran over time (extra 15 minutes to get in releasable state)
+
+# Sprint 10
+
+March 29, 2020 from 7:00am to 8:00am
+
+### List the releases in CHANGELOG.md
+
+- parse the CHANGELOG.md file
+- finish the `kraken changelog view` command
+- output:
+```
+Version: 0.0.1
+Added:
+- New feature to thing
+Updated:
+- Refactored old thing to be better
+...
+```
+
+## Review
+
+- nothing, canceled the sprint
+
+## Retro
+
+- `-` failed the sprint due to interruption
+- `+` fixed tests that were skipped after last failed sprint
+- `+` added tests to make sure subcommands are listed
+- `-` didn't get to finish `kraken changelog view` command logic
+- `-` sprint only lasted 30 minutes due to interruption

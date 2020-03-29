@@ -7,8 +7,8 @@ module Kraken
   module Git
     class Commands < SubcommandBase
       desc 'whoami', 'Displays the git repo for current directory'
-      def whoami(service = Kraken::Git::Wrapper.new)
-        puts "I am #{service.remote_url}"
+      def whoami(client = Kraken::Git::Wrapper.new)
+        puts "I am #{client.remote_url}"
       end
     end
   end
