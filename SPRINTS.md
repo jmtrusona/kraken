@@ -294,3 +294,31 @@ Updated:
 - `+` added tests to make sure subcommands are listed
 - `-` didn't get to finish `kraken changelog view` command logic
 - `-` sprint only lasted 30 minutes due to interruption
+
+# Sprint 11
+
+March 31, 2020 from 6:00am to 7:00am
+
+### List the releases in CHANGELOG.md
+
+- parse the CHANGELOG.md file
+- finish the `kraken changelog view` command
+- output:
+```
+Version: 0.0.1
+Changes:
+- New feature to thing
+- Refactored old thing to be better
+...
+```
+
+## Review
+
+- run `bundle exec exe/kraken changelog view`
+
+## Retro
+
+- `-` didn't quite finish getting the output done
+- `+` actually finished the parsing logic
+- `-` code is difficult to read (but works)
+- `-` will need to iterate on the feature again 

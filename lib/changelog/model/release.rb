@@ -3,10 +3,11 @@
 module Kraken
   module Changelog
     class Release
-      attr_accessor :version, :changeset
+      attr_accessor :version, :release_date, :changeset
 
-      def initialize(version:, changeset: Changeset.new)
+      def initialize(version:, release_date:, changeset: Changeset.new)
         @version = version
+        @release_date = release_date
         @changeset = changeset
       end
 

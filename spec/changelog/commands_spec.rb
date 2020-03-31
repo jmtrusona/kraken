@@ -10,7 +10,8 @@ RSpec.describe Kraken::Changelog::Commands do
 
     it 'parses the CHANGELOG.md and displays the releases and changesets' do
       expect(service).to receive(:parse).and_return([
-                                                      Kraken::Changelog::Release.new(version: '1.2.3')
+                                                      Kraken::Changelog::Release.new(version: '1.2.3',
+                                                                                     release_date: 'Feb 4, 2010')
                                                     ])
 
       expected = "Version: 1.2.3\n"

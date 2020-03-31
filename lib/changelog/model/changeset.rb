@@ -3,13 +3,10 @@
 module Kraken
   module Changelog
     class Changeset
-      attr_accessor :added, :changed, :removed, :fixed
+      attr_accessor :changes
 
-      def initialize(added: [], changed: [], removed: [], fixed: [])
-        @added = added
-        @changed = changed
-        @removed = removed
-        @fixed = fixed
+      def initialize(changes: [])
+        @changes = changes
       end
     end
   end
