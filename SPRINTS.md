@@ -325,7 +325,7 @@ Changes:
 
 # Sprint 12
 
-March 31, 2020 from 9:00am to 10:00am
+March 4, 2020 from 9:00am to 10:00am
 
 ### List the releases in CHANGELOG.md
 
@@ -352,3 +352,29 @@ Changes:
 - `-` tried to build out a skeleton class for handling the parsing which was too much
 - `-/+` sprint was interrupted by breakfast :)
 - `+` fit in some refactoring to simplify command signatures
+
+# Sprint 13
+
+April 4, 2020 from 11:30am to 12:30pm
+
+### Create GitHub Release
+
+- move `kraken github tags` to `kraken git tags`
+- add `kraken github create:release` command
+- asks for the Trello release card number
+- asks for the changes in the release
+- asks for confirmation
+
+
+## Review
+
+- run `bundle exec exe/kraken github release` and verify a draft release was created at https://github.com/jmtrusona/kraken/releases
+- run `bundle exec exe/kraken github release --card=123` and verify a draft release was created at https://github.com/jmtrusona/kraken/releases
+- run `bundle exec exe/kraken git tags`
+
+## Retro
+
+- `+` working github release command
+- `-` went over time by 15 minutes
+- `-` not basing the release off the current directory yet
+- `+` had time to move the git tags logic to the git service instead of github service

@@ -8,9 +8,9 @@ module Kraken
     class Commands < SubcommandBase
       desc 'cards', 'List the Trello cards for a board'
       option :board, default: 'Build'
-      def cards(client = Kraken::Trello::Service.new)
+      def cards(trello = Kraken::Trello::Service.new)
         puts 'Cards'
-        cards = client.list_cards(options[:board])
+        cards = trello.list_cards(options[:board])
         cards.each do |card|
           puts "- #{card.name}"
         end

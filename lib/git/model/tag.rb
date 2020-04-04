@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Kraken
-  module GitHub
+  module Git
     class Tag
       attr_accessor :name
 

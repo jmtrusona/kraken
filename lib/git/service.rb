@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'git'
+require 'git/model/tag'
 
 module Kraken
   module Git
@@ -11,6 +12,15 @@ module Kraken
 
       def remote_url
         @git.remote.url
+      end
+
+      def list_tags
+        @git
+          .tags
+          .select { |tag| tag.name.match?(/^v[0-9]+\.[0-9]+\.[0-9]+/) }
+          .map { |tag| tag.name.delete_prefix('v') }
+          .sort_by { |version| Gem::Version.new(version) }
+          .map { |version| Kraken::Git::Tag.new(name: version) }
       end
 
       private

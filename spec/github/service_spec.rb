@@ -3,30 +3,24 @@
 require 'github/service'
 
 RSpec.describe Kraken::GitHub::Service do
-  let(:client) { double }
+  context '#release' do
+    let(:github_client) { double }
 
-  subject { Kraken::GitHub::Service.new }
+    subject { Kraken::GitHub::Service.new }
 
-  before { subject.instance_variable_set(:@github, client) }
+    before { subject.instance_variable_set(:@github, github_client) }
 
-  it 'delegates list_tags to the initialized client' do
-    expect(client).to receive(:refs).with('burrito/taco-server')
-                                    .and_return([
-                                                  double_ref('refs/tags/v0.1.0'),
-                                                  double_ref('refs/tags/v0.2.0'),
-                                                  double_ref('blah')
-                                                ])
+    it 'creates a github release' do
+      expect(github_client).to receive(:create_release)
 
-    tags = subject.list_tags('burrito', 'taco-server')
-    expect(tags.map(&:name)).to eq(%w[v0.1.0 v0.2.0])
-  end
-
-  private
-
-  def double_ref(tag)
-    fake_ref = double
-    expect(fake_ref).to receive(:ref).at_least(1).times
-                                     .and_return(tag)
-    fake_ref
+      subject.release(
+        project: Kraken::GitHub::Project.new(
+          organization: 'mulhern-industries',
+          project: 'cat-creator-3000'
+        ),
+        release_notes: 'See CHANGELOG.md for updates',
+        release_card: '1234'
+      )
+    end
   end
 end

@@ -3,18 +3,20 @@
 require 'git/service'
 
 RSpec.describe Kraken::Git::Service do
-  let(:client) { double }
-  let(:remote) { double }
+  context '#remote_url' do
+    let(:git_client) { double }
+    let(:remote) { double }
 
-  subject { Kraken::Git::Service.new }
+    subject { Kraken::Git::Service.new }
 
-  before { subject.instance_variable_set(:@git, client) }
+    before { subject.instance_variable_set(:@git, git_client) }
 
-  it 'delegates remote_url to the initialized service' do
-    expect(client).to receive(:remote).and_return(remote)
-    expect(remote).to receive(:url).and_return('blah/blah')
+    it 'returns the remote url' do
+      expect(git_client).to receive(:remote).and_return(remote)
+      expect(remote).to receive(:url).and_return('blah/blah')
 
-    result = subject.remote_url
-    expect(result).to eq('blah/blah')
+      result = subject.remote_url
+      expect(result).to eq('blah/blah')
+    end
   end
 end

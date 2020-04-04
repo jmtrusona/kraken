@@ -7,9 +7,9 @@ module Kraken
   module Kubernetes
     class Commands < SubcommandBase
       desc 'pods LABEL', 'List the current status of the pods'
-      def pods(label, client = Kraken::Kubernetes::Service.new)
+      def pods(label, kubernetes = Kraken::Kubernetes::Service.new)
         puts "Pods app=#{label}"
-        uat_pods = client.find_pods_by_label(label)
+        uat_pods = kubernetes.find_pods_by_label(label)
         uat_pods.each do |pod|
           puts "- #{pod.name} : #{pod.status}"
         end

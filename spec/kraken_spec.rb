@@ -32,10 +32,11 @@ RSpec.describe Kraken::CLI do
     it 'displays the subcommands for git' do
       output_lines = output.split("\n")
 
-      expect(output_lines.size).to eq(3)
+      expect(output_lines.size).to eq(4)
       expect(output_lines.first).to eq('Commands:')
       expect(output_lines[1]).to include('kraken git help [COMMAND]')
-      expect(output_lines[2]).to include('kraken git whoami')
+      expect(output_lines[2]).to include('kraken git tags')
+      expect(output_lines[3]).to include('kraken git whoami')
     end
   end
 
@@ -48,7 +49,7 @@ RSpec.describe Kraken::CLI do
       expect(output_lines.size).to eq(3)
       expect(output_lines.first).to eq('Commands:')
       expect(output_lines[1]).to include('kraken github help [COMMAND]')
-      expect(output_lines[2]).to include('kraken github tags')
+      expect(output_lines[2]).to include('kraken github release')
     end
   end
 

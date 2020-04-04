@@ -3,23 +3,15 @@
 require 'github/commands'
 
 RSpec.describe Kraken::GitHub::Commands do
-  context '#tags' do
-    let(:client) { double }
+  context '#release' do
+    let(:github) { double }
 
-    let(:output) { capture(:stdout) { subject.tags(client) } }
+    let(:output) { capture(:stdout) { subject.release(github) } }
 
-    it 'lists the tags for the github project' do
-      # TODO: fix to work with options
-      # expect(client).to receive(:list_tags).with('jmtrusona', 'kraken')
-      #                                      .and_return(%w[v0.1.0 v0.2.0])
+    it 'creates a github release' do
+      expect(github).to receive(:release).and_return('Taco Release - 2020-10-10')
 
-      expect(client).to receive(:list_tags).and_return([
-                                                         Kraken::GitHub::Tag.new(name: 'v0.1.0'),
-                                                         Kraken::GitHub::Tag.new(name: 'v0.2.0')
-                                                       ])
-      expected =  "Tags\n"
-      expected += "- v0.1.0\n"
-      expected += "- v0.2.0\n"
+      expected = "Created Taco Release - 2020-10-10\n"
 
       expect(output).to eq(expected)
     end

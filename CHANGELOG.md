@@ -4,7 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.12.0] - March 31, 2020
+
+## [0.13.0] - April 4, 2020
+
+### Added
+- Ability to create a release from the GitHub service
+- `kraken github release` command
+
+### Changed
+- Moved the `kraken github tags` to `kraken git tags`
+
+## [0.12.0] - April 4, 2020
 
 ### Added
 - Lists the changes for each release in the output of `kraken changelog view` command

@@ -3,25 +3,27 @@
 require 'kubernetes/service'
 
 RSpec.describe Kraken::Kubernetes::Service do
-  let(:client) { double }
-  let(:api) { double }
-  let(:resource) { double }
+  context '#find_pods_by_label' do
+    let(:kubernetes_client) { double }
+    let(:api) { double }
+    let(:resource) { double }
 
-  subject { Kraken::Kubernetes::Service.new }
+    subject { Kraken::Kubernetes::Service.new }
 
-  before { subject.instance_variable_set(:@kubernetes, client) }
+    before { subject.instance_variable_set(:@kubernetes, kubernetes_client) }
 
-  it 'delegates find_pods_by_label to the initialized client' do
-    expect(client).to receive(:api).with('v1')
-                                   .and_return(api)
+    it 'delegates find_pods_by_label to the initialized client' do
+      expect(kubernetes_client).to receive(:api).with('v1')
+                                                .and_return(api)
 
-    expect(api).to receive(:resource).with('pods', { namespace: 'uat' })
-                                     .and_return(resource)
+      expect(api).to receive(:resource).with('pods', { namespace: 'uat' })
+                                       .and_return(resource)
 
-    expect(resource).to receive(:list).with({ labelSelector: { app: 'taco' } })
-                                      .and_return([double_pod('taco-abc-123')])
+      expect(resource).to receive(:list).with({ labelSelector: { app: 'taco' } })
+                                        .and_return([double_pod('taco-abc-123')])
 
-    subject.find_pods_by_label('taco')
+      subject.find_pods_by_label('taco')
+    end
   end
 
   private
