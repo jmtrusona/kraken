@@ -109,7 +109,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial project creation
 - Added rubocop
 
-[Unreleased]: https://github.com/jmtrusona/kraken/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/jmtrusona/kraken/compare/v0.13.0...HEAD
+[0.13.0]: https://github.com/jmtrusona/kraken/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/jmtrusona/kraken/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/jmtrusona/kraken/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/jmtrusona/kraken/compare/v0.9.0...v0.10.0
