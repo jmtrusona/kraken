@@ -28,9 +28,9 @@ RSpec.describe Kraken::Changelog::Service do
     expect(releases.last.changeset.changes).to eq([
                                                     'New feature',
                                                     'Deleted the last thing it did',
-                                                    "Fixed that bug:\n" \
-                                                    "  - Addressed issue with other stuff\n" \
-                                                    '  - Fixed this other thing'
+                                                    'Fixed that bug:' \
+                                                    ' - Addressed issue with other stuff' \
+                                                    ' - Fixed this other thing'
                                                   ])
   end
 

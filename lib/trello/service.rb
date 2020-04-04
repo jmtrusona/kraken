@@ -5,8 +5,8 @@ require 'trello/model/card'
 
 module Kraken
   module Trello
-    class Wrapper
-      def initialize(client: real_client)
+    class Service
+      def initialize
         @trello = client
       end
 
@@ -24,7 +24,7 @@ module Kraken
 
       private
 
-      def real_client
+      def client
         ::Trello.configure do |config|
           config.developer_public_key = ENV['TRELLO_APP_KEY']
           config.member_token = ENV['TRELLO_MEMBER_TOKEN']

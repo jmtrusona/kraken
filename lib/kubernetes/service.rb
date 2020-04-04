@@ -5,8 +5,8 @@ require 'kubernetes/model/pod'
 
 module Kraken
   module Kubernetes
-    class Wrapper
-      def initialize(client: real_client)
+    class Service
+      def initialize
         @kubernetes = client
       end
 
@@ -25,7 +25,7 @@ module Kraken
 
       private
 
-      def real_client
+      def client
         K8s::Client.config(
           K8s::Config.load_file(
             File.expand_path('~/.kube/config')

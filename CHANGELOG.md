@@ -4,9 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.12.0] - March 31, 2020
+
+### Added
+- Lists the changes for each release in the output of `kraken changelog view` command
+
 ## [0.11.0] - March 31, 2020
 
-### Updated
+### Changed
 - Updates to `kraken changelog view` command to parse changes
 
 ## [0.10.0] - March 29, 2020
@@ -33,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.8.0] - March 28, 2020
 
-### Updated
+### Changed
 - Switch to use named parameters on model
 - Refactored the git service
 - Moved commands down to subcommands based off type:
@@ -48,10 +53,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Git service for retrieving the current directory git remote url
 - `kraken whoami` command
 
-### Updated
+### Changed
 - Fixed broken rspec tests
 
-### Deleted
+### Removed
 - Cleaned up the faker classes which were not useful
 
 ## [0.6.0] - March 22, 2020
@@ -59,7 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Model for Trello cards, GitHub tags and Kubernetes pods
 
-### Updated
+### Changed
 - Cleaned up the module approach for all client wrappers
 
 ## [0.5.0] - March 22, 2020
@@ -76,7 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.0] - March 22, 2020
 
-### Updated
+### Changed
 - Kubernetes client to take a ClientWrapper approach
 - kraken_spec.rb tests mock out kubernetes calls
 
@@ -94,7 +99,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial project creation
 - Added rubocop
 
-[Unreleased]: https://github.com/jmtrusona/kraken/compare/v0.11.0...HEAD
+[Unreleased]: https://github.com/jmtrusona/kraken/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/jmtrusona/kraken/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/jmtrusona/kraken/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/jmtrusona/kraken/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/jmtrusona/kraken/compare/v0.8.0...v0.9.0

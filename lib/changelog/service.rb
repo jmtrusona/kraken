@@ -51,8 +51,9 @@ module Kraken
         body.split(/^### /).each do |group|
           next if group.strip.delete_suffix("\n").empty?
 
-          changes += group.split("\n")[1..-1].join("\n").split(/^\- /).reject { |s| s.strip.empty? }.map do |change|
-            strip_url_references(change)
+          # group_type = cleanup(group.split(/^-/)[0])
+          group.split(/^-/)[1..-1].each do |change|
+            changes << cleanup(change)
           end
         end
         changes
@@ -60,6 +61,11 @@ module Kraken
 
       def strip_url_references(change)
         change.split("\n").reject { |line| line.match?(/^\[/) }.join("\n")
+      end
+
+      def cleanup(string)
+        # FIXME: gsub(/\[.*$/, '') is a hack to clean up footer URL refs
+        string.gsub("\n", '').gsub(/\[.*$/, '').gsub(/\s+/, ' ').strip
       end
     end
   end

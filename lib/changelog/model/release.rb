@@ -12,7 +12,9 @@ module Kraken
       end
 
       def to_s
-        "Version: #{@version}"
+        "Version: #{@version}\n" \
+        "Released: #{release_date}\n" \
+        "#{changeset}"
       end
     end
   end

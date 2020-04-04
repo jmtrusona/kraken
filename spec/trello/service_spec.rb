@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
-require 'trello/wrapper'
+require 'trello/service'
 
-RSpec.describe Kraken::Trello::Wrapper do
+RSpec.describe Kraken::Trello::Service do
   let(:client) { double }
   let(:board) { double }
   let(:list) { double }
   let(:card) { double }
 
-  subject { Kraken::Trello::Wrapper.new(client: client) }
+  subject { Kraken::Trello::Service.new }
+
+  before { subject.instance_variable_set(:@trello, client) }
 
   it 'delegates list_cards to the initialized client' do
     expect(client).to receive(:boards)

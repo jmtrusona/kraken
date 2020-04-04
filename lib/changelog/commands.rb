@@ -11,6 +11,7 @@ module Kraken
         releases = service.parse
         releases.each do |release|
           puts release.to_s
+          puts '-----------'
         end
       end
     end

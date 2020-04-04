@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
-require 'git/wrapper'
+require 'git/service'
 
-RSpec.describe Kraken::Git::Wrapper do
+RSpec.describe Kraken::Git::Service do
   let(:client) { double }
   let(:remote) { double }
 
-  subject { Kraken::Git::Wrapper.new(client: client) }
+  subject { Kraken::Git::Service.new }
+
+  before { subject.instance_variable_set(:@git, client) }
 
   it 'delegates remote_url to the initialized service' do
     expect(client).to receive(:remote).and_return(remote)

@@ -7,8 +7,8 @@ module Kraken
   module GitHub
     class Error < StandardError; end
 
-    class Wrapper
-      def initialize(client: real_client)
+    class Service
+      def initialize
         @github = client
       end
 
@@ -25,7 +25,7 @@ module Kraken
 
       private
 
-      def real_client
+      def client
         Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
       end
     end

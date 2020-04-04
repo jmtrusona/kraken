@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-require 'github/wrapper'
+require 'github/service'
 
-RSpec.describe Kraken::GitHub::Wrapper do
+RSpec.describe Kraken::GitHub::Service do
   let(:client) { double }
 
-  subject { Kraken::GitHub::Wrapper.new(client: client) }
+  subject { Kraken::GitHub::Service.new }
+
+  before { subject.instance_variable_set(:@github, client) }
 
   it 'delegates list_tags to the initialized client' do
     expect(client).to receive(:refs).with('burrito/taco-server')

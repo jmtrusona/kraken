@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-require 'kubernetes/wrapper'
+require 'kubernetes/service'
 
-RSpec.describe Kraken::Kubernetes::Wrapper do
+RSpec.describe Kraken::Kubernetes::Service do
   let(:client) { double }
   let(:api) { double }
   let(:resource) { double }
 
-  subject { Kraken::Kubernetes::Wrapper.new(client: client) }
+  subject { Kraken::Kubernetes::Service.new }
+
+  before { subject.instance_variable_set(:@kubernetes, client) }
 
   it 'delegates find_pods_by_label to the initialized client' do
     expect(client).to receive(:api).with('v1')

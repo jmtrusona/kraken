@@ -321,4 +321,34 @@ Changes:
 - `-` didn't quite finish getting the output done
 - `+` actually finished the parsing logic
 - `-` code is difficult to read (but works)
-- `-` will need to iterate on the feature again 
+- `-` will need to iterate on the feature again
+
+# Sprint 12
+
+March 31, 2020 from 9:00am to 10:00am
+
+### List the releases in CHANGELOG.md
+
+- finish parsing the CHANGELOG.md file
+- finish the `kraken changelog view` command
+- output:
+```
+Version: 0.0.1
+Changes:
+- New feature to thing
+- Refactored old thing to be better
+...
+```
+- Rename wrapper to service
+- Update mock approach to simplify calling the services
+
+## Review
+
+- run `bundle exec exe/kraken changelog view`
+
+## Retro
+
+- `+` output of the `changelog view` command finally has the changes in it
+- `-` tried to build out a skeleton class for handling the parsing which was too much
+- `-/+` sprint was interrupted by breakfast :)
+- `+` fit in some refactoring to simplify command signatures

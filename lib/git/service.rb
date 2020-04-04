@@ -4,8 +4,8 @@ require 'git'
 
 module Kraken
   module Git
-    class Wrapper
-      def initialize(client: real_client)
+    class Service
+      def initialize
         @git = client
       end
 
@@ -15,7 +15,7 @@ module Kraken
 
       private
 
-      def real_client
+      def client
         ::Git.open('.')
       end
     end
