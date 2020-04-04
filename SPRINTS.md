@@ -378,3 +378,21 @@ April 4, 2020 from 11:30am to 12:30pm
 - `-` went over time by 15 minutes
 - `-` not basing the release off the current directory yet
 - `+` had time to move the git tags logic to the git service instead of github service
+
+# Sprint 14
+
+April 4, 2020 from 2:30pm to 3:30pm
+
+### Aloha
+
+- setup gem publish
+
+## Review
+
+- README.md for installing and publishing the `kraken` gem
+
+## Retro
+
+- `-` not super happy with the install requiring the version
+- `+` baby steps closer to getting a tool that is actually distributed
+- `+` finished on time some how
