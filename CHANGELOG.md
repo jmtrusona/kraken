@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.14.0] - April 4, 2020
 
-### Changed
-- No functional changes
+### Added
+- Rake task `rake gem:publish` for publishing the gem to Artifactory
 
 ## [0.13.0] - April 4, 2020
 
@@ -113,7 +113,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial project creation
 - Added rubocop
 
-[Unreleased]: https://github.com/jmtrusona/kraken/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/jmtrusona/kraken/compare/v0.14.0...HEAD
+[0.14.0]: https://github.com/jmtrusona/kraken/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/jmtrusona/kraken/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/jmtrusona/kraken/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/jmtrusona/kraken/compare/v0.10.0...v0.11.0
