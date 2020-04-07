@@ -3,22 +3,22 @@
 module Kraken
   module GitHub
     class Project
-      attr_accessor :organization, :project, :name
+      attr_accessor :organization, :repository, :name
 
-      def initialize(organization:, project:, name: nil)
+      def initialize(organization:, repository:, name: nil)
         @organization = organization
-        @project = project
+        @repository = repository
         @name = name || project_name
       end
 
-      def repo
-        "#{organization}/#{project}"
+      def to_s
+        "#{name} (#{organization}/#{repository})"
       end
 
       private
 
       def project_name
-        return @project.split('-').map(&:capitalize).join(' ') if @project
+        return @repository.split('-').map(&:capitalize).join(' ') if @repository
 
         'Unknown'
       end

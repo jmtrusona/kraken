@@ -9,9 +9,9 @@ RSpec.describe Kraken::GitHub::Commands do
     let(:output) { capture(:stdout) { subject.release(github) } }
 
     it 'creates a github release' do
-      expect(github).to receive(:release).and_return('Taco Release - 2020-10-10')
+      expect(github).to receive(:perform_release).and_return('http://github.com/release/tacos')
 
-      expected = "Created Taco Release - 2020-10-10\n"
+      expected = "Created http://github.com/release/tacos\n"
 
       expect(output).to eq(expected)
     end

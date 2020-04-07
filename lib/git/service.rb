@@ -14,6 +14,10 @@ module Kraken
         @git.remote.url
       end
 
+      def org_and_repo
+        remote_url.delete_prefix('git@github.com:').delete_suffix('.git').split('/')
+      end
+
       def list_tags
         @git
           .tags

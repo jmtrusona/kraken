@@ -11,16 +11,18 @@ RSpec.describe Kraken::GitHub::Service do
     before { subject.instance_variable_set(:@github, github_client) }
 
     it 'creates a github release' do
-      expect(github_client).to receive(:create_release)
+      expect(github_client).to receive(:create_release).and_return({ html_url: 'http://github.com/release/blah' })
 
-      subject.release(
-        project: Kraken::GitHub::Project.new(
-          organization: 'mulhern-industries',
-          project: 'cat-creator-3000'
-        ),
-        release_notes: 'See CHANGELOG.md for updates',
+      project = Kraken::GitHub::Project.new(
+        organization: 'yolo',
+        repository: 'stuff-doer'
+      )
+      release = Kraken::GitHub::Release.new(
+        project: project,
         release_card: '1234'
       )
+
+      subject.perform_release(release)
     end
   end
 end

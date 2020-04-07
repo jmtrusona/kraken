@@ -3,6 +3,7 @@
 require 'subcommand_base'
 require 'github/service'
 require 'github/model/project'
+require 'github/model/release'
 
 module Kraken
   module GitHub
@@ -12,15 +13,16 @@ module Kraken
       option :project, default: 'kraken'
       option :card, default: nil
       def release(github = Kraken::GitHub::Service.new)
-        release_name = github.release(
-          project: Kraken::GitHub::Project.new(
-            organization: options[:organization],
-            project: options[:project]
-          ),
-          release_notes: 'See CHANGELOG.md for updates',
+        project = Kraken::GitHub::Project.new(
+          organization: options[:organization],
+          repository: options[:project]
+        )
+        release = Kraken::GitHub::Release.new(
+          project: project,
           release_card: options[:card]
         )
-        puts "Created #{release_name}"
+        github_release_url = github.perform_release(release)
+        puts "Created #{github_release_url}"
       end
     end
   end
