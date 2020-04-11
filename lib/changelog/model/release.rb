@@ -11,6 +11,11 @@ module Kraken
         @changeset = changeset
       end
 
+      def to_md
+        "## [#{@version}] - #{@release_date}\n\n" \
+        "#{changeset.to_md}"
+      end
+
       def to_s
         "Version: #{@version}\n" \
         "Released: #{release_date}\n" \

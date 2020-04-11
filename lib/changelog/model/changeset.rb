@@ -9,6 +9,17 @@ module Kraken
         @changes = changes.reject { |change| cleanup(change.description).empty? }
       end
 
+      def to_md
+        out = ''
+        changes.group_by(&:type).sort.each do |type, changes|
+          out += "### #{type}\n"
+          out += changes.map { |change| "- #{change.description}\n" }.join
+          out += "\n"
+        end
+        # FIXME: hacky to have to remove the last newline
+        out.delete_suffix("\n")
+      end
+
       def to_s
         out = ''
         changes.group_by(&:type).sort.each do |type, changes|

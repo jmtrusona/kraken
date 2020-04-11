@@ -8,8 +8,8 @@ module Kraken
     class Commands < SubcommandBase
       desc 'view', 'Displays the release details in the CHANGELOG.md for current directory'
       def view(service = Kraken::Changelog::Service.new)
-        releases = service.parse
-        releases.each do |release|
+        log = service.parse
+        log.releases.each do |release|
           puts release.to_s
           puts '-----------'
         end

@@ -4,6 +4,7 @@ require 'changelog/service'
 
 RSpec.describe Kraken::Changelog::Service do
   let(:changelog_file) { double }
+  let(:project) { double }
 
   subject { Kraken::Changelog::Service.new }
 
@@ -11,8 +12,9 @@ RSpec.describe Kraken::Changelog::Service do
     expect(File).to receive(:open).with('CHANGELOG.md').and_return(changelog_file)
     expect(changelog_file).to receive(:readlines).and_return(fixture_changelog)
 
-    releases = subject.parse
+    log = subject.parse
 
+    releases = log.releases
     expect(releases.size).to eq(3)
 
     unreleased = releases[0]

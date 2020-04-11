@@ -429,3 +429,21 @@ Removed:
 - `-` didn't follow strict TDD
 - `+` test still drove the development
 - `-` need a better release process now that I can publish to Artifactory
+
+# Sprint 16
+
+April 11, 2020 from 11:30am to 12:30pm
+
+### Aloha
+
+- Add the concept of Log to hold the header, releases and reference portions of the CHANGELOG.md 
+
+## Review
+
+- Nothing
+
+## Retro
+
+- `+` started the implementation for generating the changelog markdown
+- `-` tried to add the project to project to the markdown for generating links which caused too much stuff to break
+- `+` liked the testing approach until the project was introduced

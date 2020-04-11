@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require 'git'
-require 'changelog/model/release'
 require 'changelog/model/changeset'
 require 'changelog/model/change'
+require 'changelog/model/log'
+require 'changelog/model/release'
 
 module Kraken
   module Changelog
@@ -13,14 +14,14 @@ module Kraken
       end
 
       def parse
-        releases = []
+        log = Kraken::Changelog::Log.new
         contents = @changelog.readlines.reject { |s| s.strip.empty? }.join("\n")
         contents.split(/^## /).each do |section|
           next if section.match?(/^# Changelog/) # Skip header
 
-          releases << parse_release(section)
+          log.releases << parse_release(section)
         end
-        releases
+        log
       end
 
       private
