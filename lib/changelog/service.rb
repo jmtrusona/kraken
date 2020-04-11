@@ -3,6 +3,7 @@
 require 'git'
 require 'changelog/model/release'
 require 'changelog/model/changeset'
+require 'changelog/model/change'
 
 module Kraken
   module Changelog
@@ -42,7 +43,7 @@ module Kraken
         version, release_date = header.split('-')
         [
           version.strip.delete_prefix('[').delete_suffix(']'),
-          release_date.strip
+          release_date&.strip
         ]
       end
 
@@ -51,9 +52,10 @@ module Kraken
         body.split(/^### /).each do |group|
           next if group.strip.delete_suffix("\n").empty?
 
-          # group_type = cleanup(group.split(/^-/)[0])
+          group_type = cleanup(group.split(/^-/)[0])
           group.split(/^-/)[1..-1].each do |change|
-            changes << cleanup(change)
+            changes << Kraken::Changelog::Change.new(type: group_type,
+                                                     description: cleanup(change))
           end
         end
         changes

@@ -396,3 +396,36 @@ April 4, 2020 from 2:30pm to 3:30pm
 - `-` not super happy with the install requiring the version
 - `+` baby steps closer to getting a tool that is actually distributed
 - `+` finished on time some how
+
+# Sprint 15
+
+April 11, 2020 from 10:00am to 11:00am
+
+### Specific changelog changes
+
+- update the `kraken changelog view` command to break out changes by type
+- output:
+```
+Version: 0.0.1
+Released: October 10, 2010
+Added:
+- New feature to thing
+Changed:
+- Refactored old thing to be better
+Removed:
+- Cleaned up unused class
+...
+```
+- add support for Unreleased
+
+## Review
+
+- run `bundle exec exe/kraken changelog view`
+
+## Retro
+
+- `+` finished 10 minutes early
+- `+` fixing the unreleased support went quickly and was easy
+- `-` didn't follow strict TDD
+- `+` test still drove the development
+- `-` need a better release process now that I can publish to Artifactory

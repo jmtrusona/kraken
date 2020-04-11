@@ -6,12 +6,16 @@ module Kraken
       attr_accessor :changes
 
       def initialize(changes: [])
-        @changes = changes.reject { |change| cleanup(change).empty? }
+        @changes = changes.reject { |change| cleanup(change.description).empty? }
       end
 
       def to_s
-        "Changes:\n" \
-        "#{changes.map { |change| "- #{change}" }.join("\n")}"
+        out = ''
+        changes.group_by(&:type).sort.each do |type, changes|
+          out += "#{type}:\n"
+          out += changes.map { |change| "- #{change.description}\n" }.join
+        end
+        out
       end
 
       private

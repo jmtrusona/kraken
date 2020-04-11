@@ -15,17 +15,24 @@ RSpec.describe Kraken::Changelog::Commands do
                                                      release_date: 'Feb 4, 2010',
                                                      changeset: Kraken::Changelog::Changeset.new(
                                                        changes: [
-                                                         'Updated the thing',
-                                                         'Added the feature'
+                                                         Kraken::Changelog::Change.new(
+                                                           type: 'Changed',
+                                                           description: 'Updated the thing'
+                                                         ),
+                                                         Kraken::Changelog::Change.new(
+                                                           type: 'Added',
+                                                           description: 'Added the feature'
+                                                         )
                                                        ]
                                                      ))
                     ])
 
       expected  = "Version: 1.2.3\n"
       expected += "Released: Feb 4, 2010\n"
-      expected += "Changes:\n"
-      expected += "- Updated the thing\n"
+      expected += "Added:\n"
       expected += "- Added the feature\n"
+      expected += "Changed:\n"
+      expected += "- Updated the thing\n"
       expected += "-----------\n"
 
       expect(output).to eq(expected)
