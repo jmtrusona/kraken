@@ -453,24 +453,23 @@ April 13, 2020 from 9:30am to 5:30pm
 ### Sprint Backlog
 
 - **Generate a CHANGELOG.md from an existing CHANGELOG.md**
-  - [x] Add flag `-o markdown` to `kraken changelog view` to output changelog as markdown
+  - Add flag `-o markdown` to `kraken changelog view` to output changelog as markdown
 - **Validate an existing CHANGELOG.md and display errors**
-  - [ ] Add command `kraken changelog check` which reads the CHANGELOG.md and reports anything unexpected
-  - [ ] Possible error scenarios:
+  - Add command `kraken changelog check` which reads the CHANGELOG.md and reports anything unexpected
+  - Possible error scenarios:
     - No header
     - Missing link references
     - Unknown change group type
     - Invalid URLs
 - **Perform a GitHub release**
-  - [x] Finish the tracer bullet functionality for `kraken release`
+  - Finish the tracer bullet functionality for `kraken release`
     - Add tests
     - Add Kraken Service to contain the logic that's living in the command
-
 - **Track the status of an active release in Kubernetes**
-  - [ ] Parse the flux logs? for information
-  - [ ] Kubernetes get of deployment status 
-  - [ ] Maybe it's just simplifying the `kraken kubernetes pods` command
-  - [ ] Maybe add some type of `kraken status` 
+  - Parse the flux logs? for information
+  - Kubernetes get of deployment status 
+  - Maybe it's just simplifying the `kraken kubernetes pods` command
+  - Maybe add some type of `kraken status` 
     - Output:
 ```
 
