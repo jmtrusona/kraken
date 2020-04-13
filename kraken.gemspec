@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['jmtrusona@users.noreply.github.com']
 
   spec.summary       = %q{Tool for performing releases}
-  spec.homepage      = 'https://github.com/jmtrusona/kraken'
+  spec.homepage      = 'https://github.com/lighthauz/kraken'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 

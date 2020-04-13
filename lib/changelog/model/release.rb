@@ -14,7 +14,7 @@ module Kraken
       def tag
         return 'master' if @version == 'Unreleased'
 
-        @version
+        "v#{@version}"
       end
 
       def to_md

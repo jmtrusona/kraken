@@ -1,8 +1,47 @@
----
 os: linux
 dist: xenial
 language: ruby
-cache: bundler
+cache:
+- bundler
+- directories:
+  - dependency-check/
 rvm:
 - 2.6.5
-before_install: gem install bundler -v 2.1.4
+stages:
+- name: build
+  if: type = push
+- name: release
+  if: type = push and tag =~ ^v[0-9]+\.[0-9]+\.[0-9]+$
+
+before_install:
+- gem install bundler -v 2.1.4
+
+jobs:
+  include:
+  - name: run rspec and static analysis
+    stage: build
+    install:
+    - bundle install
+    - gem install bundle-audit
+    script:
+    - bundle exec rake
+    - ./scripts/dep-check.sh
+  - name: build the gem
+    stage: build
+    install:
+    - bundle install
+    script:
+    - bundle exec rake gem:build
+
+notifications:
+  slack:
+    on_success: never
+    on_failure: never
+    rooms:
+      secure: SDpZsttz2jctfCrDGKbUjozx6tt1VntmmQXJyxHuKb6sEDLZvxIi0Oml009n7i6JtXZb1ZJEsXpmIZ19F3RhS54nBSLWZKFwvEgVuHgSYaKSwGKRYRe7iIfteeZtc2qrESHhCODGPSTpyVulpYHQc5rKOfUW+cwcrHwo5A/6h+fLpFcrb/qsyEdrxf1Khzh0LJOrnp8eY2UBYRSbsYHpS1/1RhsQdZaB1yjamUv2ebCchwQYjmGmpf7+Q5UTRVVtVyU1BN3xeKaNGfUxaF/rcMvo2rkAUN1ziSa/TfoF9sgWyvIcgJ7D32C1KBJGmcNyc3/HKL6KGErOK3wo3ipCLYDSIFO3lXWQvH3KDJ2uACxK+ZGfwvFw88H14QG4aTYmnZU0OugPNIvnjJEK5Wk6jZVkeZXIuHuxpSX9yktXd3sc+oBNw5i9zCJveAa00eG4/Nt+5UhlYAt5m4AM5/UVZqYTdwI/Jaf7j9gLolE7Otu3NJbCSYlBZOkApwhn4r5fpXEBoX3X3q45nWPHbQSO29V8v3G1yOA8NaKscg/EtGgtJjhmd3p0BfWbdf0EfabDDYZv5TVBQ1x6dPBbPaynxq/dZhlY8b6VxiAaqB4WlCUJ37xZG4nyBb0zcqnHPNap+78PXikBy/CEyspfvkwxgyultjguuY6x8IxKsPf8Lh8=
+env:
+  global:
+  # ARTIFACTORY_USERNAME
+  - secure: OdpXtTNJR5Sq+/YxqfrLWMMuUR6ypQJZ1l8m9v+vLrIOP440XkNTbdLSRdxyaIkqYkH3tTvgHJVmfL+CL/fmggmLunUFziwsRVBcWD5/C74nWdU7PaEBzcl2mIpvT8Dcm1LFpRo2dmxvK0EL80ET4QZ4KWmw/pNJ7wZKA72eXZxj8iqJB5E/gUyBdE0S7glNZH4GBQop527DvGKDoyHbIHYDGeNYw6gAI55bk25p5krzOgDo6vc1W1PB+2lD3TZy9f8lIUegE3jDhdXHERFu65pdq0HxzsPR13Q+y/Bw/8kP4OIAIdu3a12jfzkma3Y3QJBbpU7by4B/+oj63Ru1zVBjiuTV8jMeeUR4DwO7i0cZI70KloDAks7D+JJ0R1mqkKrzL5KP1XZeH4iIJ2/nkQTJzpNbVVjLz40U4CDdhPl2QcekxpWyOE6dCZTDBtfpiCQfRSDI6vH7eSs4i3RU6hXT3i/Rn1N9wH206WF4lmiJ0rB0bFFD0v/FjWWZneQwhb2Ozr8rcVmXCpnx0AEikBbCreh/HNpFjtO32QrTHpylqV2ImZJBqbd/InlxfUGYYPTwxaeADfW9TpnYVNxfm6TjFbzh0o9MZ8F54WKy0KdQb7yGAdgBDcgJg/yj5mdfei7bAXY7d+LQHCoil7zO445S7j/Ow/Fc6TGVGWbPb94=
+  # ARTIFACTORY_PASSWORD
+  - secure: hGm6/y93OBxaPkWlpawyojqkjIWiEJVlWkmwfr1TIdKyqMRjAi+ak9DY9I9+0VzHMt027BMJmrYAm1XiQ3XSh0bnt04A0XD9EV9TVTQmLlPlIrTli9eM13EvNvIeolvXOUrKvF4o93fz27nPGugzC4+j8yJM951t6+thzTiZngBVi1EmloWE8UuI5jHn4hX/xwcgEyr75k0im75bIAsI7ijGaOd49/26djIYkJpZfXqUXuXyKNCzFweupoA/B0wbuZy2ycRqiCr7ITnaOEP0yNJpgT+1KTrroVUdfwFvjfKMNW3mSx/8ChvnWrITLQf1JT3uWYC4V12rM5pLmp7BGbtimQbFBGHr9y9lqh4AQj6AGMuFm6vEBmJEK/jz3yqHSDsWAT9emENe0vTFd3KhsXgNG7gSH+wkjO4MXgOfUUMDzI/E0kxnUEgUVcg7x6mVajeG6tpjZSRxxSV3UB20CMOOrr6DqYIiqfPYRefyJYQiXog6hJasLJ3mDPBgI2h55M6b+OvlxLZZ9jKiepml0D7D4ENrSo0rEDnbyeUFbOJT8yIn1lnCMUXktVd84HYgXryNuzDmFf5SKCi6RRON05FcDZDReoTliUiY7wBtGcBA3knjhtG7cRvxWJsIjJ7ztkntt3+kfMgeIPd6XwDf8T6KujE32ue6FpCnWTU6mxw=

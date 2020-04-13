@@ -22,6 +22,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 - Squashed dat bug
 
-[Unreleased]: https://github.com/jmtrusona/kraken/compare/1.1.0...master
-[1.1.0]: https://github.com/jmtrusona/kraken/compare/1.0.0...1.1.0
-[1.0.0]: https://github.com/jmtrusona/kraken/releases/tag/1.0.0
+[Unreleased]: https://github.com/lighthauz/kraken/compare/v1.1.0...master
+[1.1.0]: https://github.com/lighthauz/kraken/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/lighthauz/kraken/releases/tag/v1.0.0

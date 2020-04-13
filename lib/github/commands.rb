@@ -9,7 +9,7 @@ module Kraken
   module GitHub
     class Commands < SubcommandBase
       desc 'release', 'Creates a release in GitHub for a project'
-      option :organization, default: 'jmtrusona'
+      option :organization, default: 'lighthauz'
       option :project, default: 'kraken'
       option :card, default: nil
       def release(github = Kraken::GitHub::Service.new)

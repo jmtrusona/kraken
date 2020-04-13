@@ -124,7 +124,7 @@ Github Tags
 
 ## Review
 
-- Run `bundle exec exe/kraken tags` which lists the jmtrusona/kraken tags
+- Run `bundle exec exe/kraken tags` which lists the lighthauz/kraken tags
 - Run `bundle exec exe/kraken tags --repository stubby-rails` which lists the jmtrusona/stubby-rails tags
 
 ## Retro
@@ -387,8 +387,8 @@ April 4, 2020 from 11:30am to 12:30pm
 
 ## Review
 
-- Run `bundle exec exe/kraken github release` and verify a draft release was created at https://github.com/jmtrusona/kraken/releases
-- Run `bundle exec exe/kraken github release --card=123` and verify a draft release was created at https://github.com/jmtrusona/kraken/releases
+- Run `bundle exec exe/kraken github release` and verify a draft release was created at https://github.com/lighthauz/kraken/releases
+- Run `bundle exec exe/kraken github release --card=123` and verify a draft release was created at https://github.com/lighthauz/kraken/releases
 - Run `bundle exec exe/kraken git tags`
 
 ## Retro

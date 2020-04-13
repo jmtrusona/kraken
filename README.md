@@ -30,5 +30,5 @@ gem install kraken -v <version> --source  https://$ARTIFACTORY_USERNAME:$ARTIFAC
 ## Release
 
 1. Update the CHANGELOG.md with new release version and changes
-1. Bump the version of the gem by running `bundle exec rake bump minor`
-1. Run the publish task `bundle exec rake gem:publish`
+1. Update the `lib/kraken/version.rb` to for latest version according to semver
+1. Create a git tag for the version in the form `vX.Y.Z` to trigger a publish in CI

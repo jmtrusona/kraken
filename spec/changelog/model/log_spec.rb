@@ -4,7 +4,7 @@ require 'changelog/commands'
 
 RSpec.describe Kraken::Changelog::Log do
   context '#to_md' do
-    let(:log) { Kraken::Changelog::Log.new(organization: 'jmtrusona', repository: 'kraken') }
+    let(:log) { Kraken::Changelog::Log.new(organization: 'lighthauz', repository: 'kraken') }
 
     it 'renders a markdown version of the release' do
       log.releases << Kraken::Changelog::Release.new(
