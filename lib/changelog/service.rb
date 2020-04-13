@@ -9,8 +9,8 @@ require 'changelog/model/release'
 module Kraken
   module Changelog
     class Service
-      def initialize
-        @changelog = open_changelog
+      def initialize(changelog = open_changelog)
+        @changelog = changelog
       end
 
       def parse

@@ -6,8 +6,8 @@ require 'trello/model/card'
 module Kraken
   module Trello
     class Service
-      def initialize
-        @trello = client
+      def initialize(trello = client)
+        @trello = trello
       end
 
       def list_cards(board_name)

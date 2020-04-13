@@ -7,8 +7,8 @@ require 'error/missing_env_error'
 module Kraken
   module GitHub
     class Service
-      def initialize
-        @github = client
+      def initialize(github = client)
+        @github = github
       end
 
       def perform_release(release)
@@ -25,8 +25,6 @@ module Kraken
       private
 
       def client
-        return @github if @github
-
         raise MissingEnvError, access_token_key unless access_token_exists?
 
         Octokit::Client.new(access_token: access_token)

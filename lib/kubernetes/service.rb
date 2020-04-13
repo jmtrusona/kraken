@@ -6,8 +6,8 @@ require 'kubernetes/model/pod'
 module Kraken
   module Kubernetes
     class Service
-      def initialize
-        @kubernetes = client
+      def initialize(kubernetes = client)
+        @kubernetes = kubernetes
       end
 
       def find_pods_by_label(label)
@@ -26,8 +26,6 @@ module Kraken
       private
 
       def client
-        return @kubernetes if @kubernetes
-
         K8s::Client.config(
           K8s::Config.load_file(
             File.expand_path('~/.kube/config')

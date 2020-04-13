@@ -7,9 +7,7 @@ RSpec.describe Kraken::Git::Service do
     let(:git_client) { double }
     let(:remote) { double }
 
-    before { subject.instance_variable_set(:@git, git_client) }
-
-    subject { Kraken::Git::Service.new }
+    subject { Kraken::Git::Service.new(git_client) }
 
     it 'returns the remote url' do
       expect(git_client).to receive(:remote).and_return(remote)

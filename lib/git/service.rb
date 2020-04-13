@@ -6,8 +6,8 @@ require 'git/model/tag'
 module Kraken
   module Git
     class Service
-      def initialize
-        @git = client
+      def initialize(git = client)
+        @git = git
       end
 
       def remote_url
