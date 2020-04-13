@@ -25,6 +25,8 @@ module Kraken
       private
 
       def client
+        return @github if @github
+
         raise MissingEnvError, access_token_key unless access_token_exists?
 
         Octokit::Client.new(access_token: access_token)

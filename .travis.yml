@@ -7,6 +7,7 @@ cache:
   - dependency-check/
 rvm:
 - 2.6.5
+
 stages:
 - name: build
   if: type = push
@@ -18,18 +19,28 @@ before_install:
 
 jobs:
   include:
-  - name: run rspec and static analysis
+
+  - name: rspec
     stage: build
-    install:
-    - bundle install
+    script:
+    - bundle exec rspec
+
+  - name: rubocop
+    stage: build
+    before_script:
     - gem install bundle-audit
     script:
-    - bundle exec rake
     - ./scripts/dep-check.sh
+
+  - name: depcheck
+    stage: build
+    before_script:
+    - gem install bundle-audit
+    script:
+    - ./scripts/dep-check.sh
+
   - name: build the gem
     stage: build
-    install:
-    - bundle install
     script:
     - bundle exec rake gem:build
 

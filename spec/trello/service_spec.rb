@@ -9,9 +9,9 @@ RSpec.describe Kraken::Trello::Service do
     let(:list) { double }
     let(:card) { double }
 
-    subject { Kraken::Trello::Service.new }
-
     before { subject.instance_variable_set(:@trello, trello_client) }
+
+    subject { Kraken::Trello::Service.new }
 
     it 'lists the cards for the given board' do
       expect(trello_client).to receive(:boards)

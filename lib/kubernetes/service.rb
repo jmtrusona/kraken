@@ -26,6 +26,8 @@ module Kraken
       private
 
       def client
+        return @kubernetes if @kubernetes
+
         K8s::Client.config(
           K8s::Config.load_file(
             File.expand_path('~/.kube/config')

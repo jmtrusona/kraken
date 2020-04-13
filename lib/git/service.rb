@@ -30,6 +30,8 @@ module Kraken
       private
 
       def client
+        return @git if @git
+
         ::Git.open('.')
       end
     end

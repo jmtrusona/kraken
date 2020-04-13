@@ -8,9 +8,9 @@ RSpec.describe Kraken::Kubernetes::Service do
     let(:api) { double }
     let(:resource) { double }
 
-    subject { Kraken::Kubernetes::Service.new }
-
     before { subject.instance_variable_set(:@kubernetes, kubernetes_client) }
+
+    subject { Kraken::Kubernetes::Service.new }
 
     it 'delegates find_pods_by_label to the initialized client' do
       expect(kubernetes_client).to receive(:api).with('v1')
