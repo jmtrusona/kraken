@@ -14,8 +14,13 @@ module Kraken
       end
 
       def parse
-        log = Kraken::Changelog::Log.new
         contents = @changelog.readlines.reject { |s| s.strip.empty? }.join("\n")
+
+        organization, repository = determine_org_and_repo(contents)
+        log = Kraken::Changelog::Log.new(
+          organization: organization,
+          repository: repository
+        )
         contents.split(/^## /).each do |section|
           next if section.match?(/^# Changelog/) # Skip header
 
@@ -28,6 +33,15 @@ module Kraken
 
       def open_changelog
         File.open('CHANGELOG.md')
+      end
+
+      def determine_org_and_repo(contents)
+        contents.split("\n").each do |line|
+          next unless line.include?(']: https://github.com/')
+
+          # FIXME: hacky way of figuring out the org and repo from the CHANGELOG.md only
+          return line.split(']: https://github.com/')[1].split('/')[0..1]
+        end
       end
 
       def parse_release(section)

@@ -11,8 +11,14 @@ module Kraken
         @changeset = changeset
       end
 
+      def tag
+        return 'master' if @version == 'Unreleased'
+
+        @version
+      end
+
       def to_md
-        "## [#{@version}] - #{@release_date}\n\n" \
+        "## #{release_header}\n\n" \
         "#{changeset.to_md}"
       end
 
@@ -20,6 +26,14 @@ module Kraken
         "Version: #{@version}\n" \
         "Released: #{release_date}\n" \
         "#{changeset}"
+      end
+
+      private
+
+      def release_header
+        return "[#{@version}] - #{@release_date}" if @release_date
+
+        "[#{@version}]"
       end
     end
   end

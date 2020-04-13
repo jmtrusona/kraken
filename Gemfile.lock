@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kraken (0.15.0)
+    kraken (0.17.0)
       git (~> 1.6)
       k8s-client (~> 0.10)
       octokit (~> 4.0)
