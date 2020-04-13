@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Add flag `-o markdown` to `kraken changelog view` to output changelog as markdown
-
+- Added flag `-o markdown` to `kraken changelog view` to output changelog as markdown
+- Added the official version of `kraken release` which creates a GitHub release similar to the `githbub_release.rb` script
+- Added error logic for when the `GITHUB_TOKEN` env has not been set
+- Added error general handling to prevent stacktrace explosions
+ 
 ## [0.16.0] - April 11, 2020
 
 ### Added

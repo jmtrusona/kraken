@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
 
   # Runtime Dependencies
   spec.add_dependency 'thor', '~> 1.0'
+  spec.add_dependency 'thor-hollaback', '~> 0.2'
   spec.add_dependency 'k8s-client', '~> 0.10'
   spec.add_dependency 'octokit', '~> 4.0'
   spec.add_dependency 'ruby-trello', '~> 2.2'

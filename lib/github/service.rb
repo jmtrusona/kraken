@@ -2,6 +2,8 @@
 
 require 'octokit'
 
+require 'error/missing_env_error'
+
 module Kraken
   module GitHub
     class Service
@@ -23,7 +25,21 @@ module Kraken
       private
 
       def client
-        Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+        raise MissingEnvError, access_token_key unless access_token_exists?
+
+        Octokit::Client.new(access_token: access_token)
+      end
+
+      def access_token_exists?
+        access_token&.strip != ''
+      end
+
+      def access_token
+        ENV[access_token_key]
+      end
+
+      def access_token_key
+        'GITHUB_TOKEN'
       end
     end
   end
