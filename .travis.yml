@@ -44,6 +44,11 @@ jobs:
     script:
     - bundle exec rake gem:build
 
+  - name: publish the gem
+    stage: release
+    script:
+    - bundle exec rake gem:publish
+
 notifications:
   slack:
     on_success: never

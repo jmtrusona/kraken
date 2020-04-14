@@ -498,8 +498,16 @@ Pods:
 
 ### Review
 
-- 
+- Run `bundle exec exe/kraken changelog view -o markdown` to parse the current directory CHANGELOG.md and output as markdown
+- Run `bundle exec exe/kraken release` to perform a GitHub release similar to the `github_release.rb` script 
+- Did not get a chance to work on the `kraken status` or changelog validation ideas
 
 ### Retro
 
-- 
+- `-` only completed half the work I set out to do
+- `+` moved to the lighthauz organization and setup CI
+- `+` added error handling for interrupts and missing environment variable
+- `+` got a solid solution for regenerating the CHANGELOG.md that is close to our projects format
+- `+` got the `kraken release` command at a point that I'd feel comfortable using for a release tag release (skylab maybe)
+- `+` nice to have a longer sprint for a change of pace
+- `-` over committed myself to multiple ideas in planning
