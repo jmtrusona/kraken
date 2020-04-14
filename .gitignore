@@ -5,9 +5,14 @@
 /doc/
 /pkg/
 /spec/reports/
-/tmp/
+/vendor/
+
+# keep the tmp directory around but ignore everything in it
+/tmp/*
+!/tmp/.keep
 
 # rspec failure tracking
 .rspec_status
+/dependency-check/
 
 .idea

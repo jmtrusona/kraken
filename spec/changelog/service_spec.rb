@@ -6,10 +6,9 @@ RSpec.describe Kraken::Changelog::Service do
   let(:changelog_file) { double }
   let(:project) { double }
 
-  subject { Kraken::Changelog::Service.new }
+  subject { Kraken::Changelog::Service.new(changelog_file) }
 
   it 'parses the CHANGELOG.md' do
-    expect(File).to receive(:open).with('CHANGELOG.md').and_return(changelog_file)
     expect(changelog_file).to receive(:readlines).and_return(fixture_changelog)
 
     log = subject.parse

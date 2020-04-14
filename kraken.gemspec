@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['jmtrusona@users.noreply.github.com']
 
   spec.summary       = %q{Tool for performing releases}
-  spec.homepage      = 'https://github.com/jmtrusona/kraken'
+  spec.homepage      = 'https://github.com/lighthauz/kraken'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
 
   # Runtime Dependencies
   spec.add_dependency 'thor', '~> 1.0'
+  spec.add_dependency 'thor-hollaback', '~> 0.2'
   spec.add_dependency 'k8s-client', '~> 0.10'
   spec.add_dependency 'octokit', '~> 4.0'
   spec.add_dependency 'ruby-trello', '~> 2.2'

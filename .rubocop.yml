@@ -10,6 +10,7 @@ AllCops:
   - 'Gemfile'
   - 'Rakefile'
   - 'spec/spec_helper.rb'
+  - 'vendor/**/*'
 
 # Accept both [:a, :b, :c] and %i[a b c]
 Style/SymbolArray:

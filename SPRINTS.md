@@ -1,33 +1,29 @@
-# Sprint 1 
+# Development Cycles
+
+## Sprint 1 
 
 March 21, 2020 from 11:00am to 12:00pm
 
-## Stories
+### Sprint Backlog
 
-### List kubernetes deployment
-
-- add kubernetes client gem
-- add `kraken list deployments [name]`
-- ~ validate the name is found in cluster
-- output:
-
+- **List kubernetes deployment**
+  - Add kubernetes client gem
+  - Add `kraken list deployments [name]`
+  - ~ Validate the name is found in cluster
+  - Output:
 ```
 [deployment name] - [cluster]
 - [pod] : [status]
 - [pod] : [status]
 ```
 
-- `v0.2.0` tagged
-- fully tested using live cluster
-- ~ stub out kubernetes cluster
+### Review
 
-## Review
-
-- run `bundle exec exe/kraken pods trusona`
-- run `bundle exec exe/kraken pods td-authentication`
+- Run `bundle exec exe/kraken pods trusona`
+- Run `bundle exec exe/kraken pods td-authentication`
 
 
-## Retro
+### Retro
 
 - `+` Switched from `list deployment` to `pods` 
 - `+` Changelog is descriptive and easy to update
@@ -35,16 +31,16 @@ March 21, 2020 from 11:00am to 12:00pm
 - `-` Tests are brittle as they rely on the current us-oahu pods names for Trusona Service
 - `-/+` The original gem I was planning on using ended up being too limited to be useful, switched to use `https://github.com/kontena/k8s-client` instead
 
-# Sprint 2
+## Sprint 2
 
 March 21, 2020 from 2:00pm to 3:00pm
 
-### List Trello cards
+### Sprint Backlog
 
-- add tacokit gem
-- add `kraken cards` command
-- output:
-
+- **List Trello cards**
+  - Add tacokit gem
+  - Add `kraken cards` command
+  - Output:
 ```
 Backlog
 - [card number] : [card title]
@@ -54,13 +50,11 @@ Sprint Backlog
 ...
 ```
 
-- `v0.3.0` tagged
-
-## Review
+### Review
 
 - Nothing to review, failed to complete task and deleted sprint code
 
-## Retro
+### Retro
 
 - `-` tacokit gem did not end up working as planned, switched to trello-ruby gem
 - `-` unable to complete tasks with the sprint, rolled back all code
@@ -69,80 +63,77 @@ Sprint Backlog
 - `+` was able to list the cards by lists
 - `+/-` try again from scratch in next sprint, no release, no `v0.3.0`
 
-# Sprint 3
+## Sprint 3
 
 March 22, 2020 from 10:00am to 11:00am
 
-### Add watch to pods command
+### Sprint Backlog
 
-- add `--watch` flag to `kraken pods` 
-- output:
-
+- **Add watch to pods command**
+  - Add `--watch` flag to `kraken pods` 
+  - Update tests to use mock
+  - Output:
 ```
 Pod [app label]
 - [pod] : [status] -> 5min 
 - [pod] : [status] -> 1m32s
 ```
 
-- update tests to use mock
-- `v0.4.0` tagged
+### Review
 
-## Review
+- Run `bundle exec exe/kraken pods trusona`
+- Run `bundle exec exe/kraken pods td-authentication`
+- Tests no longer rely on real kubernetes cluster
+- Released as `v0.3.0`
 
-- run `bundle exec exe/kraken pods trusona`
-- run `bundle exec exe/kraken pods td-authentication`
-- tests no longer rely on real kubernetes cluster
-- released as `v0.3.0`
-
-## Retro
+### Retro
 
 - `-/+` scrapped the watch command idea to focus on tests
 - `+` no longer need real cluster to run tests
 - `-` watch command provides little value as you can just use the `watch kraken pods trusona` for the same effect
 
-# Sprint 4
+## Sprint 4
 
 March 22, 2020 from 12:00pm to 1:00pm
 
-### List github tags
+### Sprint Backlog
 
-- add octokit gem
-- add GithubWrapper to project
-- add `kraken tags` command, looks up tags for current directory project (must run from with project)
-- output:
-
+- **List github tags**
+  - Add octokit gem
+  - Add GithubWrapper to project
+  - Add `kraken tags` command, looks up tags for current directory project (must run from with project)
+  - Tests use mock
+  - Output:
 ```
 Github Tags
 - v0.1.0
 - v0.2.0
 ```
 
-- Tests use mock
-- `v0.4.0` tagged
+### Review
 
-## Review
+- Run `bundle exec exe/kraken tags` which lists the lighthauz/kraken tags
+- Run `bundle exec exe/kraken tags --repository stubby-rails` which lists the jmtrusona/stubby-rails tags
 
-- run `bundle exec exe/kraken tags` which lists the jmtrusona/kraken tags
-- run `bundle exec exe/kraken tags --repository stubby-rails` which lists the jmtrusona/stubby-rails tags
-
-## Retro
+### Retro
 
 - `-` broke the spec right at the end of the sprint trying to add the repo and org flags
 - `+` got the client wrapper working with tests
 - `-` issues with pagination when pulling the tags, unable to run against skylab
 - `-` did not have time to use current directory as the basis for tags, hard coded to this repo
 
-# Sprint 5
+## Sprint 5
 
 March 22, 2020 from 2:00pm to 3:00pm
 
-### List github tags
+### Sprint Backlog
 
-- add tacokit gem
-- add TrelloWrapper to project
-- add `kraken cards` command to list the Build board cards
-- output:
-
+- **List github tags**
+  - Add tacokit gem
+  - Add TrelloWrapper to project
+  - Add `kraken cards` command to list the Build board cards
+  - Tests use mock
+  - Output:
 ```
 Build
 Backlog
@@ -152,14 +143,11 @@ Sprint Backlog
 ...
 ```
 
-- Tests use mock
-- `v0.5.0` tagged
+### Review
 
-## Review
+- Run `bundle exec exe/kraken cards` to display all card titles for the Build board
 
-- run `bundle exec exe/kraken cards` to display all card titles for the Build board
-
-## Retro
+### Retro
 
 - `-` feature did not turn out as planned
 - `-` took extra 8 minutes to finish the sprint work
@@ -168,81 +156,85 @@ Sprint Backlog
 - `+` got it sort of working
 - `-` been forgetting to update the `version.rb` file with releases
 
-# Sprint 6
+## Sprint 6
 
 March 22, 2020 from 4:30pm to 5:30pm
 
-### Aloha
+### Sprint Backlog
 
-- fix module name
-- remove `kraken hello` command
-- add `kraken version` command
-- refactor for outputs
-- `v0.6.0` tagged
+- **Aloha**
+  - Fix module name
+  - Remove `kraken hello` command
+  - Add `kraken version` command
+  - Refactor for outputs
+  - `v0.6.0` tagged
 
-## Review
+### Review
 
-- run `bundle exec exe/kraken tags`
-- run `bundle exec exe/kraken cards`
-- run `bundle exec exe/kraken pods trusona`
+- Run `bundle exec exe/kraken tags`
+- Run `bundle exec exe/kraken cards`
+- Run `bundle exec exe/kraken pods trusona`
 
-## Retro
+### Retro
 
 - `+` nice to clean up code
 - `-` no new features
 
 
-# Sprint 7
+## Sprint 7
 
 March 25, 2020 from 7:00am to 8:00am
 
-### Figure out git repo based off current directory
+### Sprint Backlog
 
-- add a git gem to project
-- add `kraken whoami` command
+- **Figure out git repo based off current directory**
+  - Add a git gem to project
+  - Add `kraken whoami` command
 
-## Review
+### Review
 
-- run `bundle exec exe/kraken whoami`
+- Run `bundle exec exe/kraken whoami`
 
-## Retro
+### Retro
 
 - `-` had to fix tests that were left broken in Sprint 6
 - `-/+` removed the faker classes which were not being used
 - `+` git service was easy to implement
 - `+` finished the sprint early (only took 40 minutes)
 
-# Sprint 8
+## Sprint 8
 
 March 28, 2020 from 3:45pm to 4:45pm
 
-### Aloha
+### Sprint Backlog
 
-- move to [subcommands](https://github.com/erikhuda/thor/wiki/Subcommands) 
+- **Aloha**
+  - Move to [subcommands](https://github.com/erikhuda/thor/wiki/Subcommands) 
 
-## Review
+### Review
 
-- run `bundle exec exe/kraken git whoami`
-- run `bundle exec exe/kraken github tags`
-- run `bundle exec exe/kraken kubernetes pods trusona` (connect to us-oahu cluster)
-- run `bundle exec exe/kraken trello cards`
+- Run `bundle exec exe/kraken git whoami`
+- Run `bundle exec exe/kraken github tags`
+- Run `bundle exec exe/kraken kubernetes pods trusona` (connect to us-oahu cluster)
+- Run `bundle exec exe/kraken trello cards`
 
-## Retro
+### Retro
 
 - `+` refactor to subcommands went smoothly
 - `+` less mess in the **kraken_spec.rb** file
 - `-` the help on subcommands is a little weird
 - `+` finished sprint early (only took 45 minutes)
 
-# Sprint 9
+## Sprint 9
 
 March 29, 2020 from 7:00am to 8:00am
 
-### List the releases in CHANGELOG.md
+### Sprint Backlog
 
-- parse the CHANGELOG.md file
-- add `kraken changelog view` command
-- output:
+- **List the releases in CHANGELOG.md**
+  - Parse the CHANGELOG.md file
+  - Add `kraken changelog view` command
+  - Output:
 ```
 Version: 0.0.1
 Added:
@@ -252,11 +244,11 @@ Updated:
 ...
 ```
 
-## Review
+### Review
 
-- nothing, failed the sprint
+- Nothing, failed the sprint
 
-## Retro
+### Retro
 
 - `-` only got the parse logic for the CHANGELOG.md half done
 - `+` got all the test logic set up for changelog
@@ -265,15 +257,16 @@ Updated:
 - `+/-` output of the `kraken changelog view` command is "under construction" to keep it releasable
 - `-` sprint ran over time (extra 15 minutes to get in releasable state)
 
-# Sprint 10
+## Sprint 10
 
 March 29, 2020 from 7:00am to 8:00am
 
-### List the releases in CHANGELOG.md
+### Sprint Backlog
 
-- parse the CHANGELOG.md file
-- finish the `kraken changelog view` command
-- output:
+- **List the releases in CHANGELOG.md**
+  - Parse the CHANGELOG.md file
+  - Finish the `kraken changelog view` command
+  - Output:
 ```
 Version: 0.0.1
 Added:
@@ -283,11 +276,11 @@ Updated:
 ...
 ```
 
-## Review
+### Review
 
-- nothing, canceled the sprint
+- Nothing, canceled the sprint
 
-## Retro
+### Retro
 
 - `-` failed the sprint due to interruption
 - `+` fixed tests that were skipped after last failed sprint
@@ -295,15 +288,16 @@ Updated:
 - `-` didn't get to finish `kraken changelog view` command logic
 - `-` sprint only lasted 30 minutes due to interruption
 
-# Sprint 11
+## Sprint 11
 
 March 31, 2020 from 6:00am to 7:00am
 
-### List the releases in CHANGELOG.md
+### Sprint Backlog
 
-- parse the CHANGELOG.md file
-- finish the `kraken changelog view` command
-- output:
+- **List the releases in CHANGELOG.md**
+  - Parse the CHANGELOG.md file
+  - Finish the `kraken changelog view` command
+  - Output:
 ```
 Version: 0.0.1
 Changes:
@@ -312,26 +306,29 @@ Changes:
 ...
 ```
 
-## Review
+### Review
 
-- run `bundle exec exe/kraken changelog view`
+- Run `bundle exec exe/kraken changelog view`
 
-## Retro
+### Retro
 
 - `-` didn't quite finish getting the output done
 - `+` actually finished the parsing logic
 - `-` code is difficult to read (but works)
 - `-` will need to iterate on the feature again
 
-# Sprint 12
+## Sprint 12
 
 March 4, 2020 from 9:00am to 10:00am
 
-### List the releases in CHANGELOG.md
+### Sprint Backlog
 
-- finish parsing the CHANGELOG.md file
-- finish the `kraken changelog view` command
-- output:
+- **List the releases in CHANGELOG.md**
+  - Finish parsing the CHANGELOG.md file
+  - Finish the `kraken changelog view` command
+  - Rename wrapper to service
+  - Update mock approach to simplify calling the services
+  - Output:
 ```
 Version: 0.0.1
 Changes:
@@ -339,72 +336,73 @@ Changes:
 - Refactored old thing to be better
 ...
 ```
-- Rename wrapper to service
-- Update mock approach to simplify calling the services
 
-## Review
+### Review
 
-- run `bundle exec exe/kraken changelog view`
+- Run `bundle exec exe/kraken changelog view`
 
-## Retro
+### Retro
 
 - `+` output of the `changelog view` command finally has the changes in it
 - `-` tried to build out a skeleton class for handling the parsing which was too much
 - `-/+` sprint was interrupted by breakfast :)
 - `+` fit in some refactoring to simplify command signatures
 
-# Sprint 13
+## Sprint 13
 
 April 4, 2020 from 11:30am to 12:30pm
 
-### Create GitHub Release
+### Sprint Backlog
 
-- move `kraken github tags` to `kraken git tags`
-- add `kraken github create:release` command
-- asks for the Trello release card number
-- asks for the changes in the release
-- asks for confirmation
+- **Create GitHub Release**
+  - Move `kraken github tags` to `kraken git tags`
+  - Add `kraken github create:release` command
+  - Asks for the Trello release card number
+  - Asks for the changes in the release
+  - Asks for confirmation
 
+### Review
 
-## Review
+- Run `bundle exec exe/kraken github release` and verify a draft release was created at https://github.com/lighthauz/kraken/releases
+- Run `bundle exec exe/kraken github release --card=123` and verify a draft release was created at https://github.com/lighthauz/kraken/releases
+- Run `bundle exec exe/kraken git tags`
 
-- run `bundle exec exe/kraken github release` and verify a draft release was created at https://github.com/jmtrusona/kraken/releases
-- run `bundle exec exe/kraken github release --card=123` and verify a draft release was created at https://github.com/jmtrusona/kraken/releases
-- run `bundle exec exe/kraken git tags`
-
-## Retro
+### Retro
 
 - `+` working github release command
 - `-` went over time by 15 minutes
 - `-` not basing the release off the current directory yet
 - `+` had time to move the git tags logic to the git service instead of github service
 
-# Sprint 14
+## Sprint 14
 
 April 4, 2020 from 2:30pm to 3:30pm
 
-### Aloha
+### Sprint Backlog
 
-- setup gem publish
+- **Aloha**
+  - Setup gem publish
 
-## Review
+### Review
 
 - README.md for installing and publishing the `kraken` gem
 
-## Retro
+### Retro
 
 - `-` not super happy with the install requiring the version
 - `+` baby steps closer to getting a tool that is actually distributed
 - `+` finished on time some how
 
-# Sprint 15
+## Sprint 15
 
 April 11, 2020 from 10:00am to 11:00am
 
-### Specific changelog changes
+### Sprint Backlog
 
-- update the `kraken changelog view` command to break out changes by type
-- output:
+- **Specific changelog changes**
+  - Update the `kraken changelog view` command to break out changes by type
+  - Add support for Unreleased
+  - Output:
 ```
 Version: 0.0.1
 Released: October 10, 2010
@@ -416,13 +414,12 @@ Removed:
 - Cleaned up unused class
 ...
 ```
-- add support for Unreleased
 
-## Review
+### Review
 
-- run `bundle exec exe/kraken changelog view`
+- Run `bundle exec exe/kraken changelog view`
 
-## Retro
+### Retro
 
 - `+` finished 10 minutes early
 - `+` fixing the unreleased support went quickly and was easy
@@ -430,20 +427,87 @@ Removed:
 - `+` test still drove the development
 - `-` need a better release process now that I can publish to Artifactory
 
-# Sprint 16
+## Sprint 16
 
 April 11, 2020 from 11:30am to 12:30pm
 
-### Aloha
+### Sprint Backlog
 
-- Add the concept of Log to hold the header, releases and reference portions of the CHANGELOG.md 
+- **Aloha**
+  - Add the concept of Log to hold the header, releases and reference portions of the CHANGELOG.md 
 
-## Review
+### Review
 
 - Nothing
 
-## Retro
+### Retro
 
 - `+` started the implementation for generating the changelog markdown
 - `-` tried to add the project to project to the markdown for generating links which caused too much stuff to break
 - `+` liked the testing approach until the project was introduced
+
+## Sprint 17
+
+April 13, 2020 from 9:30am to 5:30pm
+
+### Sprint Backlog
+
+- **Generate a CHANGELOG.md from an existing CHANGELOG.md**
+  - Add flag `-o markdown` to `kraken changelog view` to output changelog as markdown
+- **Validate an existing CHANGELOG.md and display errors**
+  - Add command `kraken changelog check` which reads the CHANGELOG.md and reports anything unexpected
+  - Possible error scenarios:
+    - No header
+    - Missing link references
+    - Unknown change group type
+    - Invalid URLs
+- **Perform a GitHub release**
+  - Finish the tracer bullet functionality for `kraken release`
+    - Add tests
+    - Add Kraken Service to contain the logic that's living in the command
+- **Track the status of an active release in Kubernetes**
+  - Parse the flux logs? for information
+  - Kubernetes get of deployment status 
+  - Maybe it's just simplifying the `kraken kubernetes pods` command
+  - Maybe add some type of `kraken status` 
+    - Output:
+```
+
+Project: Kraken
+Status: Releasing
+Pods:
+- <pod-name> : Init
+- <pod-name> : Init
+
+---
+
+Project: Kraken
+Status: Released
+Pods:
+- <pod-name> : Runnning
+- <pod-name> : Runnning
+
+---
+
+Project: Kraken
+Status: Broken
+Pods:
+- <pod-name> : CrashLookBackOff
+- <pod-name> : CrashLookBackOff
+```
+
+### Review
+
+- Run `bundle exec exe/kraken changelog view -o markdown` to parse the current directory CHANGELOG.md and output as markdown
+- Run `bundle exec exe/kraken release` to perform a GitHub release similar to the `github_release.rb` script 
+- Did not get a chance to work on the `kraken status` or changelog validation ideas
+
+### Retro
+
+- `-` only completed half the work I set out to do
+- `+` moved to the lighthauz organization and setup CI
+- `+` added error handling for interrupts and missing environment variable
+- `+` got a solid solution for regenerating the CHANGELOG.md that is close to our projects format
+- `+` got the `kraken release` command at a point that I'd feel comfortable using for a release tag release (skylab maybe)
+- `+` nice to have a longer sprint for a change of pace
+- `-` over committed myself to multiple ideas in planning

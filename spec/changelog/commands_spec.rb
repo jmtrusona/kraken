@@ -6,10 +6,10 @@ RSpec.describe Kraken::Changelog::Commands do
   context '#view' do
     let(:service) { double }
 
-    let(:output) { capture(:stdout) { subject.view(service) } }
-
-    it 'parses the CHANGELOG.md and displays the releases and changesets' do
-      log = Kraken::Changelog::Log.new(
+    let(:changelog) do
+      Kraken::Changelog::Log.new(
+        organization: 'jmulhern',
+        repository: 'kraken',
         releases:
           [
             Kraken::Changelog::Release.new(version: '1.2.3',
@@ -43,7 +43,12 @@ RSpec.describe Kraken::Changelog::Commands do
                                            ))
           ]
       )
-      expect(service).to receive(:parse).and_return(log)
+    end
+
+    let(:output) { capture(:stdout) { subject.view(service) } }
+
+    it 'parses the CHANGELOG.md and displays the releases and changesets' do
+      expect(service).to receive(:parse).and_return(changelog)
 
       expected  = "Version: 1.2.3\n"
       expected += "Released: Feb 4, 2010\n"

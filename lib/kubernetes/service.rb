@@ -6,8 +6,8 @@ require 'kubernetes/model/pod'
 module Kraken
   module Kubernetes
     class Service
-      def initialize
-        @kubernetes = client
+      def initialize(kubernetes = client)
+        @kubernetes = kubernetes
       end
 
       def find_pods_by_label(label)
