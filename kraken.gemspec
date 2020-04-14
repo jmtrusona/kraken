@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Runtime Dependencies
-  spec.add_dependency 'thor', '~> 1.0'
+  spec.add_dependency 'thor', '~> 0.18'
   spec.add_dependency 'thor-hollaback', '~> 0.2'
   spec.add_dependency 'k8s-client', '~> 0.10'
   spec.add_dependency 'octokit', '~> 4.0'
@@ -35,6 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'git', '~> 1.6'
 
   # Task and testing tools
+  spec.add_development_dependency 'bundler-audit', '~> 0.6'
   spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.81'

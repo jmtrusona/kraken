@@ -20,29 +20,10 @@ before_install:
 jobs:
   include:
 
-  - name: rspec
+  - name: run static analysis and build the gem
     stage: build
     script:
-    - bundle exec rspec
-
-  - name: rubocop
-    stage: build
-    before_script:
-    - gem install bundle-audit
-    script:
-    - ./scripts/dep-check.sh
-
-  - name: depcheck
-    stage: build
-    before_script:
-    - gem install bundle-audit
-    script:
-    - ./scripts/dep-check.sh
-
-  - name: build the gem
-    stage: build
-    script:
-    - bundle exec rake gem:build
+    - bundle exec rake
 
   - name: publish the gem
     stage: release

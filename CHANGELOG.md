@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - Nothing
 
+## [0.18.0] - April 14, 2020
+
+### Added
+- Added shareable rake tasks `kraken:release` to run the release command
+
 ## [0.17.0] - April 13, 2020
 
 ### Added

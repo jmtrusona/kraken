@@ -511,3 +511,22 @@ Pods:
 - `+` got the `kraken release` command at a point that I'd feel comfortable using for a release tag release (skylab maybe)
 - `+` nice to have a longer sprint for a change of pace
 - `-` over committed myself to multiple ideas in planning
+
+
+## Sprint 18
+
+April 13, 2020 from 8:30am to 9:00am
+
+### Sprint Backlog
+
+- **Add shareable rake task: `kraken:release`**
+
+### Review
+
+- Run the `bundle exec rake kraken:release` in the golden-rails-app (must have kraken checked out as a sibling directory)
+
+### Retro
+
+- `+` half an hour was enough time to complete the work
+- `+` had time to move all ci build under the default rake task
+- `-` git repo is currently public which is not desired

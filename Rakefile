@@ -4,13 +4,25 @@ require 'rubocop/rake_task'
 require 'net/http'
 require 'uri'
 
+task :default do
+  Rake::Task['spec'].invoke
+  Rake::Task['rubocop'].invoke
+  Rake::Task['dep_check:check'].invoke
+  Rake::Task['gem:build'].invoke
+end
+
 RSpec::Core::RakeTask.new(:spec)
 
 RuboCop::RakeTask.new(:rubocop) do |t|
   t.options = ['--display-cop-names']
 end
 
-task default: [:spec, :rubocop]
+namespace :dep_check do
+  desc 'runs dep check script'
+  task :check do
+    `./scripts/dep-check.sh`
+  end
+end
 
 namespace :artifactory do
   desc 'fetch the gem credentials file from artifactory'
